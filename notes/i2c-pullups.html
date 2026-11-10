@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="电阻太大时上升沿拖慢，太小时器件拉低要承担更大的电流。用两个边界夹出起点。">
+  <title>I²C 上拉电阻怎么选？｜硬件手记</title>
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="masthead" id="top">
+    <div class="wrap masthead-inner">
+      <a class="brand" href="../index.html" aria-label="硬件手记首页"><img src="../assets/mark.svg" width="38" height="38" alt=""><span><strong>硬件手记</strong><small>给做板子的人</small></span></a>
+      <nav class="navigation" aria-label="主导航"><a href="../index.html">发现</a><a href="../index.html#catalog" aria-current="true">技术笔记</a><a href="first-power.html">上电清单</a><a href="../library.html">资源库</a></nav>
+      <div class="header-actions"><a class="search-link" href="../index.html#search">搜索</a><button type="button" class="theme" data-theme-toggle aria-label="切换到夜间模式" title="切换阅读模式" hidden>☾</button></div>
+    </div>
+  </header>
+  <main class="wrap reader" id="main">
+    <a class="back" href="../index.html#catalog">← 返回技术笔记</a>
+    <article>
+      <header class="article-header">
+        <p class="article-topic">接口 / 计算例题</p>
+        <h1>I²C 上拉电阻怎么选？</h1>
+        <p class="dek">电阻太大时上升沿拖慢，太小时器件拉低要承担更大的电流。用两个边界夹出起点。</p>
+      </header>
+      <div class="reader-grid">
+        <div class="article-body">
+          <p>典型 I²C 总线通过开漏输出拉低 SDA 和 SCL，释放后由上拉电阻给总线电容充电。先确认总线模式、上拉电压，以及所有器件的输入阈值和低电平驱动能力。</p>
+          <section aria-labelledby="bounds">
+            <h2 id="bounds">算出上下限</h2>
+            <p><strong>上限：</strong>在简单 RC 模型、30% 到 70% 的上升时间定义下，R<sub>p,max</sub> = t<sub>r,max</sub> / (0.8473 × C<sub>b</sub>)。总线电容包括走线、连线、器件引脚和连接器。</p><p><strong>下限：</strong>用最弱的拉低器件校核，R<sub>p,min</sub> = (V<sub>pullup</sub> − V<sub>OL,max</sub>) / I<sub>OL</sub>。从器件资料取对应的保证值，计算时纳入电源与电阻容差。</p>
+          </section>
+          <section aria-labelledby="example">
+            <h2 id="example">代入一组假设值</h2>
+            <p>例：3.3 V 上拉，Fast-mode，估计总线电容 100 pF，上升时间限值 300 ns，器件可在 3 mA 灌电流下保证低电平不超过 0.4 V。上限约 3.54 kΩ，下限约 0.97 kΩ。2.2 kΩ 是这组假设下的一个起点，估计上升时间约 186 ns。</p>
+          </section>
+          <section aria-labelledby="measure">
+            <h2 id="measure">到板上测一次</h2>
+            <p>把插接模块上的上拉算进去，并联后的等效电阻可能更小。在实际线长和器件组合下量 SDA、SCL 的上升时间及低电平。若上下限没有交集，可考虑降低速率、减小电容或按规范选择总线缓冲方案。</p>
+          </section>
+          <section class="sources" aria-labelledby="sources-title"><h2 id="sources-title">参考资料</h2><ul><li><a href="https://www.nxp.com/docs/en/user-guide/UM10204.pdf">NXP：UM10204，§7.1 Pull-up resistor sizing</a></li></ul></section>
+          <div class="article-end"><a href="../index.html#catalog">浏览全部笔记</a><a href="uart.html">接着读：串口没有输出 ↗</a></div>
+        </div>
+        <nav class="toc" aria-label="文章目录"><strong>这篇怎么读</strong><ul><li><a href="#bounds">算出上下限</a></li><li><a href="#example">代入一组假设值</a></li><li><a href="#measure">到板上测一次</a></li><li><a href="#sources-title">参考资料</a></li></ul></nav>
+      </div>
+    </article>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><div><strong>硬件手记</strong><p>把测量条件写清楚，把判断留给证据。</p></div><a href="#top">回到顶部 ↑</a></div></footer>
+</body>
+</html>

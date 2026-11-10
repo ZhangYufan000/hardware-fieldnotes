@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="先看发送引脚的实际波形，再判断问题在板上、线缆，还是终端设置。">
+  <title>串口没输出，先从哪里查？｜硬件手记</title>
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="masthead" id="top">
+    <div class="wrap masthead-inner">
+      <a class="brand" href="../index.html" aria-label="硬件手记首页"><img src="../assets/mark.svg" width="38" height="38" alt=""><span><strong>硬件手记</strong><small>给做板子的人</small></span></a>
+      <nav class="navigation" aria-label="主导航"><a href="../index.html">发现</a><a href="../index.html#catalog" aria-current="true">技术笔记</a><a href="first-power.html">上电清单</a><a href="../library.html">资源库</a></nav>
+      <div class="header-actions"><a class="search-link" href="../index.html#search">搜索</a><button type="button" class="theme" data-theme-toggle aria-label="切换到夜间模式" title="切换阅读模式" hidden>☾</button></div>
+    </div>
+  </header>
+  <main class="wrap reader" id="main">
+    <a class="back" href="../index.html#catalog">← 返回技术笔记</a>
+    <article>
+      <header class="article-header">
+        <p class="article-topic">接口 / 故障排查</p>
+        <h1>串口没输出，先从哪里查？</h1>
+        <p class="dek">先看发送引脚的实际波形，再判断问题在板上、线缆，还是终端设置。</p>
+      </header>
+      <div class="reader-grid">
+        <div class="article-body">
+          <p>串口终端空白时，从发送端一路往外查，比同时改驱动、波特率和接线更容易缩小范围。先确定接口是板级逻辑 UART，还是经过了 RS-232 等收发器。</p>
+          <section aria-labelledby="wire">
+            <h2 id="wire">查接线与电平</h2>
+            <p>在确认两端可以共地且逻辑电平兼容的板级接口上，接好信号参考地，发送端 TX 接对方 RX。查适配器是何种逻辑电平，确认板上引脚的耐压。看日志只需单向接收时，可以先只接板端 TX、适配器 RX 和地。</p>
+          </section>
+          <section aria-labelledby="wave">
+            <h2 id="wave">直接量 TX</h2>
+            <p>复位时用示波器或逻辑分析仪看 TX 有没有跳变。有跳变时，量一个已知单比特的宽度，或发送重复的 <code>0x55</code> 便于识别相邻边沿。例如 115200 bit/s 下，一个比特约 8.68 μs。没有跳变时，先核对复位、时钟、引脚复用和程序是否运行到发送语句。</p>
+          </section>
+          <section aria-labelledby="decode">
+            <h2 id="decode">再对齐终端设置</h2>
+            <p>检查端口号、波特率、数据位、校验位、停止位和流控。看到乱码时，用仪器先解码板端 TX，再比对适配器端收到的内容。记录在哪一段开始出现差异。</p>
+          </section>
+          <div class="article-end"><a href="../index.html#catalog">浏览全部笔记</a><a href="first-power.html">回看：新板上电清单 ↗</a></div>
+        </div>
+        <nav class="toc" aria-label="文章目录"><strong>这篇怎么读</strong><ul><li><a href="#wire">查接线与电平</a></li><li><a href="#wave">直接量 TX</a></li><li><a href="#decode">再对齐终端设置</a></li></ul></nav>
+      </div>
+    </article>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><div><strong>硬件手记</strong><p>把测量条件写清楚，把判断留给证据。</p></div><a href="#top">回到顶部 ↑</a></div></footer>
+</body>
+</html>

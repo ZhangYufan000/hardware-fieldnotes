@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="给低压、限能的实验样板用。每次换板，先按原理图和器件资料重新确认电源条件。">
+  <title>新板第一次上电清单｜硬件手记</title>
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="masthead" id="top">
+    <div class="wrap masthead-inner">
+      <a class="brand" href="../index.html" aria-label="硬件手记首页"><img src="../assets/mark.svg" width="38" height="38" alt=""><span><strong>硬件手记</strong><small>给做板子的人</small></span></a>
+      <nav class="navigation" aria-label="主导航"><a href="../index.html">发现</a><a href="../index.html#catalog">技术笔记</a><a href="first-power.html" aria-current="page">上电清单</a><a href="../library.html">资源库</a></nav>
+      <div class="header-actions"><a class="search-link" href="../index.html#search">搜索</a><button type="button" class="theme" data-theme-toggle aria-label="切换到夜间模式" title="切换阅读模式" hidden>☾</button></div>
+    </div>
+  </header>
+  <main class="wrap reader" id="main">
+    <a class="back" href="../index.html#catalog">← 返回技术笔记</a>
+    <article>
+      <header class="article-header">
+        <p class="article-topic">调试 / 可勾选清单</p>
+        <h1>新板第一次上电清单</h1>
+        <p class="dek">给低压、限能的实验样板用。每次换板，先按原理图和器件资料重新确认电源条件。</p>
+      </header>
+      <div class="reader-grid">
+        <div class="article-body">
+          <p>把上电拆成三个阶段。先查装配与连线，再看供电表现，最后才加载固件或接外设。清单进度可以保存在当前浏览器。</p>
+          <section aria-labelledby="before">
+            <h2 id="before">断电检查</h2>
+            <p>确认板号和装配版本，按图纸检查供电接口、极性、器件方向和可疑焊桥。断电并放电后，测量供电轨对地阻值；低阻电源轨要结合设计和正常样板判断，单凭蜂鸣档难以判定短路。</p>
+            <div class="checklist" role="group" aria-label="首次上电检查项目">
+            <label><input type="checkbox"> <span>核对输入电压、极性和接线。</span></label>
+            <label><input type="checkbox"> <span>检查反装、焊桥和电源轨对地阻值。</span></label>
+            <label><input type="checkbox"> <span>根据预期启动与稳态电流设定限流，先断开非必要外设。</span></label>
+            <label><input type="checkbox"> <span>上电观察输入电流，逐路检查关键供电电压。</span></label>
+            <label><input type="checkbox"> <span>检查异常温升、复位、使能和时钟状态。</span></label>
+            <label><input type="checkbox"> <span>记录板号、实测值、限流和下一步。</span></label>
+            </div>
+            <div class="checklist-actions" hidden><output id="checklist-progress" aria-live="polite"></output><button class="outline" type="button" id="checklist-reset">重置清单</button></div>
+          </section>
+          <section aria-labelledby="power">
+            <h2 id="power">限流上电</h2>
+            <p>限流要结合预期浪涌和硬件允许范围，过低也可能让正常启动失败。上电先看电源是否持续限流，再量关键电源轨。电流、温升或轨电压持续异常时，断电后逐路定位。</p>
+          </section>
+          <section aria-labelledby="record">
+            <h2 id="record">记录并决定下一步</h2>
+            <p>写下每路的预期值、实测值、上电顺序和异常现象。电源确认后，才检查复位、时钟、下载口和启动日志。一次只改一个变量，并记录改动前后的结果。</p>
+          </section>
+          <div class="article-end"><a href="../index.html#catalog">浏览全部笔记</a><a href="ripple.html">接着读：如何测电源纹波 ↗</a></div>
+        </div>
+        <nav class="toc" aria-label="文章目录"><strong>这篇怎么读</strong><ul><li><a href="#before">断电检查</a></li><li><a href="#power">限流上电</a></li><li><a href="#record">记录并决定下一步</a></li></ul></nav>
+      </div>
+    </article>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><div><strong>硬件手记</strong><p>把测量条件写清楚，把判断留给证据。</p></div><a href="#top">回到顶部 ↑</a></div></footer>
+</body>
+</html>

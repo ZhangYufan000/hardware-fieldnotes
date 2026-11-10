@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="硬件手记：从电源、PCB、接口到板级调试，分享可在工作台验证的硬件笔记。">
+  <meta name="theme-color" content="#f4f2eb">
+  <title>硬件手记｜把电路想明白，把板子做出来</title>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="masthead" id="top">
+    <div class="wrap masthead-inner">
+      <a class="brand" href="index.html" aria-label="硬件手记首页">
+        <img src="assets/mark.svg" width="38" height="38" alt="">
+        <span><strong>硬件手记</strong><small>给做板子的人</small></span>
+      </a>
+      <nav class="navigation" aria-label="主导航">
+        <a href="index.html" aria-current="page">发现</a>
+        <a href="#catalog">技术笔记</a>
+        <a href="notes/first-power.html">上电清单</a>
+        <a href="library.html">资源库</a>
+      </nav>
+      <div class="header-actions">
+        <a class="search-link" href="#search" aria-label="搜索笔记"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 4 4"/></svg><span>搜索</span></a>
+        <button type="button" class="theme" data-theme-toggle aria-label="切换到夜间模式" title="切换阅读模式" hidden>☾</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="edition"><span></span> 硬件工程师的工作台笔记</p>
+        <h1 id="hero-title">把电路想明白，<br><em>把板子做出来。</em></h1>
+        <p class="hero-intro">从原理图到示波器，把设计为什么这样做、遇到问题怎么查，一篇一篇讲清楚。</p>
+        <div class="hero-actions">
+          <a class="button" href="#catalog">浏览技术笔记 <span aria-hidden="true">↓</span></a>
+          <a class="plain-action" href="notes/first-power.html">新板上电清单 <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="lead-story">
+          <p>本期选读</p>
+          <a href="notes/ripple.html">纹波真的有那么大吗？<span aria-hidden="true">↗</span></a>
+          <p>从探头接地开始，区分电源纹波和测量伪影。</p>
+        </div>
+      </div>
+      <figure class="hero-art">
+        <img src="assets/workbench.webp" width="1536" height="1024" alt="蓝色调的硬件工作台插画，台灯照亮示波器、电路板、探头与纸质笔记" fetchpriority="high">
+        <figcaption><span>工作台一角</span><span>从一块板、一条波形开始</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="reading-line" aria-label="入门阅读顺序">
+      <div><span class="minor">第一次点亮一块板</span><h2>从上电走到读懂波形。</h2></div>
+      <ol>
+        <li><a href="notes/first-power.html"><span>01</span> 上电前检查</a></li>
+        <li><a href="notes/ripple.html"><span>02</span> 看懂电源波形</a></li>
+        <li><a href="notes/uart.html"><span>03</span> 读出启动日志</a></li>
+      </ol>
+    </section>
+
+    <section class="catalog" id="catalog" aria-labelledby="catalog-title">
+      <div class="catalog-heading">
+        <div><h2 id="catalog-title">技术笔记</h2><p>按主题浏览，或从眼前的故障找一篇。</p></div>
+        <form class="search" id="search" role="search" hidden>
+          <label class="visually-hidden" for="query">搜索技术笔记</label>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 4 4"/></svg>
+          <input type="search" id="query" placeholder="搜纹波、I²C、回流…" autocomplete="off" aria-controls="note-list">
+          <kbd aria-hidden="true">/</kbd>
+        </form>
+      </div>
+      <div class="catalog-controls" id="catalog-controls" hidden>
+        <div class="filters" role="group" aria-label="按主题筛选">
+          <button type="button" data-filter="all" aria-pressed="true">全部</button>
+          <button type="button" data-filter="power" aria-pressed="false">电源</button>
+          <button type="button" data-filter="pcb" aria-pressed="false">PCB</button>
+          <button type="button" data-filter="interface" aria-pressed="false">接口</button>
+          <button type="button" data-filter="debug" aria-pressed="false">调试</button>
+        </div>
+        <output id="result-count" aria-live="polite">6 篇笔记</output>
+      </div>
+
+      <div class="note-grid" id="note-list">
+        <article class="note" data-topic="power" data-keywords="纹波 示波器 探头 测量 ripple DC-DC 电源 噪声">
+          <div class="note-kicker"><span class="note-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l2-6 4 12 3-6h5"/></svg></span><span>电源 <small>· 测量方法</small></span></div>
+          <h3><a href="notes/ripple.html">纹波真的有那么大吗？</a></h3>
+          <p>用短接地、统一带宽和可重复的测点，把测到的噪声分清楚。</p>
+          <span class="note-tag">示波器</span>
+        </article>
+        <article class="note" data-topic="power" data-keywords="去耦 旁路 电容 供电 decoupling bypass MLCC 电源">
+          <div class="note-kicker"><span class="note-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 5v14m4-14v14M3 12h7m4 0h7"/></svg></span><span>电源 <small>· 设计原理</small></span></div>
+          <h3><a href="notes/decoupling.html">去耦电容，近在什么地方？</a></h3>
+          <p>沿着供电和地走一圈，找出电容放得很近、回路却很远的情况。</p>
+          <span class="note-tag">去耦</span>
+        </article>
+        <article class="note" data-topic="pcb" data-keywords="pcb 回流 return path 参考平面 跨分割 地平面 EMC 信号完整性 叠层">
+          <div class="note-kicker"><span class="note-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 8 9-4 9 4-9 4-9-4Zm0 4 9 4 9-4M3 16l9 4 9-4"/></svg></span><span>PCB <small>· 布局布线</small></span></div>
+          <h3><a href="notes/return-path.html">信号走过去，电流怎么回来？</a></h3>
+          <p>从参考平面、过孔和开槽三个位置，检查高速信号的回流路径。</p>
+          <span class="note-tag">回流路径</span>
+        </article>
+        <article class="note" data-topic="interface" data-keywords="i2c i²c iic 上拉 电阻 开漏 总线 SDA SCL 接口 4.7k">
+          <div class="note-kicker"><span class="note-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h3V7h5v10h5V7h5"/></svg></span><span>接口 <small>· 计算例题</small></span></div>
+          <h3><a href="notes/i2c-pullups.html">I²C 上拉电阻怎么选？</a></h3>
+          <p>用上升时间和低电平灌电流给电阻划一个范围，再到板上验证。</p>
+          <span class="note-tag">I²C</span>
+        </article>
+        <article class="note" data-topic="debug" data-keywords="调试 上电 新板 首次 开机 检查 清单 限流 bring-up">
+          <div class="note-kicker"><span class="note-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v8m-5-6a8 8 0 1 0 10 0"/></svg></span><span>调试 <small>· 可勾选清单</small></span></div>
+          <h3><a href="notes/first-power.html">新板第一次上电清单</a></h3>
+          <p>接电前检查什么、先量哪一路，以及看到哪些现象应该停下来。</p>
+          <span class="note-tag">板级调试</span>
+        </article>
+        <article class="note" data-topic="interface" data-keywords="uart 串口 日志 波特率 ttl tx rx 乱码 接口 调试 8n1">
+          <div class="note-kicker"><span class="note-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 6 5 5-5 5m8 0h8"/></svg></span><span>接口 <small>· 故障排查</small></span></div>
+          <h3><a href="notes/uart.html">串口没输出，先从哪里查？</a></h3>
+          <p>先看 TX 上有没有边沿，再分清接线、电平、波特率和固件问题。</p>
+          <span class="note-tag">UART</span>
+        </article>
+      </div>
+      <div class="empty" id="empty" hidden>
+        <h3>没找到匹配的笔记</h3>
+        <p>试试更短的关键词，例如「电容」「上电」或「UART」。</p>
+        <button class="outline" id="clear-search" type="button">清除筛选</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner"><div><strong>硬件手记</strong><p>把测量条件写清楚，把判断留给证据。</p></div><a href="#top">回到顶部 ↑</a></div>
+  </footer>
+</body>
+</html>

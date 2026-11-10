@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="同一个测点，换一种探头接地方式，尖峰可能就变了。用一组对照测量，先确定你看到的是电源，还是探头回路。">
+  <title>纹波真的有那么大吗？｜硬件手记</title>
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="masthead" id="top">
+    <div class="wrap masthead-inner">
+      <a class="brand" href="../index.html" aria-label="硬件手记首页"><img src="../assets/mark.svg" width="38" height="38" alt=""><span><strong>硬件手记</strong><small>给做板子的人</small></span></a>
+      <nav class="navigation" aria-label="主导航"><a href="../index.html">发现</a><a href="../index.html#catalog" aria-current="true">技术笔记</a><a href="first-power.html">上电清单</a><a href="../library.html">资源库</a></nav>
+      <div class="header-actions"><a class="search-link" href="../index.html#search">搜索</a><button type="button" class="theme" data-theme-toggle aria-label="切换到夜间模式" title="切换阅读模式" hidden>☾</button></div>
+    </div>
+  </header>
+  <main class="wrap reader" id="main">
+    <a class="back" href="../index.html#catalog">← 返回技术笔记</a>
+    <article>
+      <header class="article-header">
+        <p class="article-topic">电源 / 测量方法</p>
+        <h1>纹波真的有那么大吗？</h1>
+        <p class="dek">同一个测点，换一种探头接地方式，尖峰可能就变了。用一组对照测量，先确定你看到的是电源，还是探头回路。</p>
+      </header>
+      <div class="reader-grid">
+        <div class="article-body">
+          <p>测开关电源输出时，长接地线与探头围成的回路容易拾取附近的开关磁场。看到窄尖峰时，先把测量装置当作一个变量，再判断板子。</p>
+          <section aria-labelledby="setup">
+            <h2 id="setup">先固定测量条件</h2>
+            <p>在低压、已确认可安全共地的板子上，选输出电容两端作为一个测点，记下输入电压、负载、探头倍率、带宽、耦合方式和时基。若要判断负载端实际见到的电压，再单独测负载端。接地式示波器的地夹与保护地相连，测量前先确认参考点。</p>
+          </section>
+          <section aria-labelledby="compare">
+            <h2 id="compare">只改变探头接地</h2>
+            <ol><li>先保留原波形，并标注接地点与探头位置。</li><li>在同一测点换成接地弹簧，让探头尖端和回地尽量靠近，保持仪器设置不变。</li><li>把两张波形的周期性起伏和窄尖峰分别比较。若尖峰随回路大小或探头朝向明显变化，说明测量拾取可能占了一部分。</li></ol><div class="callout"><p>示波器的带宽限制也会改变峰峰值。与芯片手册比较时，照手册写明的负载、测点、探头连接和带宽来测。</p></div>
+          </section>
+          <section aria-labelledby="record">
+            <h2 id="record">写一条能复现的记录</h2>
+            <p>记录用这种结构就够了：板号、输入、负载、测点、探头接地方式、带宽、耦合、波形截图和峰峰值。测纹波和测负载瞬态分开记录，后者还要写负载阶跃幅度和边沿速度。</p>
+          </section>
+          <section class="sources" aria-labelledby="sources-title"><h2 id="sources-title">参考资料</h2><ul><li><a href="https://www.tek.com/fr/documents/application-note/probing-techniques-accurate-voltage-measurements-power-converters-oscillos">Tektronix：电源转换器的示波器探测方法</a></li></ul></section>
+          <div class="article-end"><a href="../index.html#catalog">浏览全部笔记</a><a href="decoupling.html">接着读：去耦电容的回路 ↗</a></div>
+        </div>
+        <nav class="toc" aria-label="文章目录"><strong>这篇怎么读</strong><ul><li><a href="#setup">先固定测量条件</a></li><li><a href="#compare">只改变探头接地</a></li><li><a href="#record">写一条能复现的记录</a></li><li><a href="#sources-title">参考资料</a></li></ul></nav>
+      </div>
+    </article>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><div><strong>硬件手记</strong><p>把测量条件写清楚，把判断留给证据。</p></div><a href="#top">回到顶部 ↑</a></div></footer>
+</body>
+</html>

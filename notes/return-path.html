@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="看完顶层走线，再打开它的参考平面。断缝、换层和开槽都可能改变回流。">
+  <title>信号走过去，电流怎么回来？｜硬件手记</title>
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="masthead" id="top">
+    <div class="wrap masthead-inner">
+      <a class="brand" href="../index.html" aria-label="硬件手记首页"><img src="../assets/mark.svg" width="38" height="38" alt=""><span><strong>硬件手记</strong><small>给做板子的人</small></span></a>
+      <nav class="navigation" aria-label="主导航"><a href="../index.html">发现</a><a href="../index.html#catalog" aria-current="true">技术笔记</a><a href="first-power.html">上电清单</a><a href="../library.html">资源库</a></nav>
+      <div class="header-actions"><a class="search-link" href="../index.html#search">搜索</a><button type="button" class="theme" data-theme-toggle aria-label="切换到夜间模式" title="切换阅读模式" hidden>☾</button></div>
+    </div>
+  </header>
+  <main class="wrap reader" id="main">
+    <a class="back" href="../index.html#catalog">← 返回技术笔记</a>
+    <article>
+      <header class="article-header">
+        <p class="article-topic">PCB / 布局布线</p>
+        <h1>信号走过去，电流怎么回来？</h1>
+        <p class="dek">看完顶层走线，再打开它的参考平面。断缝、换层和开槽都可能改变回流。</p>
+      </header>
+      <div class="reader-grid">
+        <div class="article-body">
+          <p>快速边沿的信号通常依赖附近的参考平面形成高频回流。走线下方出现断缝时，回流会受到阻碍，可能绕行并扩大电流回路。</p>
+          <section aria-labelledby="plane">
+            <h2 id="plane">先确定参考层</h2>
+            <p>在叠层里找到走线相邻的参考平面。从源端沿信号一路走到负载，查看平面在走线下方是否连续。注意板边、连接器过孔群和电源铜皮的边界。</p>
+          </section>
+          <section aria-labelledby="transition">
+            <h2 id="transition">把换层当作一个检查点</h2>
+            <p>若换层前后参考的是同一地网络的不同平面，检查信号过孔附近是否有合适的地过孔为回流提供连接。若参考平面属于不同网络，则按叠层和器件参考设计规划返回路径，优先避免这类参考切换。</p>
+          </section>
+          <section aria-labelledby="review">
+            <h2 id="review">一张图让审查可复查</h2>
+            <p>截图同时保留信号层与参考层，标出源端、负载、换层点和可疑断缝。先改影响最大的路径，再用相同配置比较波形或干扰指标。</p><div class="callout"><p>判断是否需要关注回流时，同时考虑信号的上升与下降时间。时钟频率低，边沿仍可能很快。</p></div>
+          </section>
+          <section class="sources" aria-labelledby="sources-title"><h2 id="sources-title">参考资料</h2><ul><li><a href="https://www.ti.com/lit/an/scaa082a/scaa082a.pdf">Texas Instruments：High-Speed Layout Guidelines，参考平面与回流</a></li></ul></section>
+          <div class="article-end"><a href="../index.html#catalog">浏览全部笔记</a><a href="decoupling.html">接着读：去耦电容的回路 ↗</a></div>
+        </div>
+        <nav class="toc" aria-label="文章目录"><strong>这篇怎么读</strong><ul><li><a href="#plane">先确定参考层</a></li><li><a href="#transition">把换层当作一个检查点</a></li><li><a href="#review">一张图让审查可复查</a></li><li><a href="#sources-title">参考资料</a></li></ul></nav>
+      </div>
+    </article>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><div><strong>硬件手记</strong><p>把测量条件写清楚，把判断留给证据。</p></div><a href="#top">回到顶部 ↑</a></div></footer>
+</body>
+</html>
