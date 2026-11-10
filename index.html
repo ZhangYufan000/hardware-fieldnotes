@@ -21,7 +21,6 @@
       <nav class="navigation" aria-label="主导航">
         <a href="index.html" aria-current="page">发现</a>
         <a href="#catalog">技术笔记</a>
-        <a href="notes/first-power.html">上电清单</a>
         <a href="library.html">资源库</a>
       </nav>
       <div class="header-actions">
@@ -39,7 +38,7 @@
         <p class="hero-intro">从原理图到示波器，把设计为什么这样做、遇到问题怎么查，一篇一篇讲清楚。</p>
         <div class="hero-actions">
           <a class="button" href="#catalog">浏览技术笔记 <span aria-hidden="true">↓</span></a>
-          <a class="plain-action" href="notes/first-power.html">新板上电清单 <span aria-hidden="true">↗</span></a>
+          <a class="plain-action" href="library.html">查找参考资料 <span aria-hidden="true">↗</span></a>
         </div>
         <div class="lead-story">
           <p>本期选读</p>
@@ -54,9 +53,9 @@
     </section>
 
     <section class="reading-line" aria-label="入门阅读顺序">
-      <div><span class="minor">第一次点亮一块板</span><h2>从上电走到读懂波形。</h2></div>
+      <div><span class="minor">推荐阅读路线</span><h2>从布线到读懂波形。</h2></div>
       <ol>
-        <li><a href="notes/first-power.html"><span>01</span> 上电前检查</a></li>
+        <li><a href="notes/return-path.html"><span>01</span> 理解信号回流</a></li>
         <li><a href="notes/ripple.html"><span>02</span> 看懂电源波形</a></li>
         <li><a href="notes/uart.html"><span>03</span> 读出启动日志</a></li>
       </ol>
@@ -78,9 +77,8 @@
           <button type="button" data-filter="power" aria-pressed="false">电源</button>
           <button type="button" data-filter="pcb" aria-pressed="false">PCB</button>
           <button type="button" data-filter="interface" aria-pressed="false">接口</button>
-          <button type="button" data-filter="debug" aria-pressed="false">调试</button>
         </div>
-        <output id="result-count" aria-live="polite">6 篇笔记</output>
+        <output id="result-count" aria-live="polite">5 篇笔记</output>
       </div>
 
       <div class="note-grid" id="note-list">
@@ -108,12 +106,6 @@
           <p>用上升时间和低电平灌电流给电阻划一个范围，再到板上验证。</p>
           <span class="note-tag">I²C</span>
         </article>
-        <article class="note" data-topic="debug" data-keywords="调试 上电 新板 首次 开机 检查 清单 限流 bring-up">
-          <div class="note-kicker"><span class="note-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v8m-5-6a8 8 0 1 0 10 0"/></svg></span><span>调试 <small>· 可勾选清单</small></span></div>
-          <h3><a href="notes/first-power.html">新板第一次上电清单</a></h3>
-          <p>接电前检查什么、先量哪一路，以及看到哪些现象应该停下来。</p>
-          <span class="note-tag">板级调试</span>
-        </article>
         <article class="note" data-topic="interface" data-keywords="uart 串口 日志 波特率 ttl tx rx 乱码 接口 调试 8n1">
           <div class="note-kicker"><span class="note-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 6 5 5-5 5m8 0h8"/></svg></span><span>接口 <small>· 故障排查</small></span></div>
           <h3><a href="notes/uart.html">串口没输出，先从哪里查？</a></h3>
@@ -123,7 +115,7 @@
       </div>
       <div class="empty" id="empty" hidden>
         <h3>没找到匹配的笔记</h3>
-        <p>试试更短的关键词，例如「电容」「上电」或「UART」。</p>
+        <p>试试更短的关键词，例如「电容」「回流」或「UART」。</p>
         <button class="outline" id="clear-search" type="button">清除筛选</button>
       </div>
     </section>

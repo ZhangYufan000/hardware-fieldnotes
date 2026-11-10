@@ -85,27 +85,3 @@ if (form) {
   });
   if (location.hash === '#search') input.focus();
 }
-
-const checklist = document.querySelector('.checklist');
-if (checklist) {
-  const items = [...checklist.querySelectorAll('input[type="checkbox"]')];
-  const output = document.querySelector('#checklist-progress');
-  const reset = document.querySelector('#checklist-reset');
-  const key = 'hw-notes-first-power-v1';
-  const stored = readSetting(key) || '';
-  items.forEach((item, index) => { item.checked = stored[index] === '1'; });
-
-  function updateChecklist() {
-    const completed = items.filter((item) => item.checked).length;
-    output.textContent = `已完成 ${completed} / ${items.length} 项`;
-    writeSetting(key, items.map((item) => item.checked ? '1' : '0').join(''));
-  }
-
-  checklist.addEventListener('change', updateChecklist);
-  reset.addEventListener('click', () => {
-    items.forEach((item) => { item.checked = false; });
-    updateChecklist();
-  });
-  document.querySelector('.checklist-actions').hidden = false;
-  updateChecklist();
-}

@@ -16,7 +16,7 @@
   <header class="masthead" id="top">
     <div class="wrap masthead-inner">
       <a class="brand" href="index.html" aria-label="硬件手记首页"><img src="assets/mark.svg" width="38" height="38" alt=""><span><strong>硬件手记</strong><small>给做板子的人</small></span></a>
-      <nav class="navigation" aria-label="主导航"><a href="index.html">发现</a><a href="index.html#catalog">技术笔记</a><a href="notes/first-power.html">上电清单</a><a href="library.html" aria-current="page">资源库</a></nav>
+      <nav class="navigation" aria-label="主导航"><a href="index.html">发现</a><a href="index.html#catalog">技术笔记</a><a href="library.html" aria-current="page">资源库</a></nav>
       <div class="header-actions"><button type="button" class="theme" data-theme-toggle aria-label="切换到夜间模式" title="切换阅读模式" hidden>☾</button></div>
     </div>
   </header>
@@ -25,7 +25,7 @@
       <div>
         <p class="edition"><span></span> 硬件手记 · 参考资料</p>
         <h1>资源库</h1>
-        <p>从器件选型到板级调试，按主题找到手边能用的书和厂商资料。</p>
+        <p>按主题查找百度网盘分享、厂商手册和在线设计资料。</p>
       </div>
       <div class="library-access" id="local-access" hidden>
         <strong>打开我的参考书</strong>
@@ -41,6 +41,11 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 4 4"/></svg>
         <input type="search" id="book-query" placeholder="搜书名、主题、格式…" autocomplete="off" aria-controls="book-list">
       </form>
+      <div class="filters library-sources" id="resource-sources" role="group" aria-label="资源来源" hidden>
+        <button type="button" data-source="all" aria-pressed="true">全部来源</button>
+        <button type="button" data-source="baidu" aria-pressed="false">百度网盘</button>
+        <button type="button" data-source="official" aria-pressed="false">官方资料</button>
+      </div>
       <output id="folder-status" aria-live="polite"></output>
     </div>
     <div class="library-grid">
@@ -48,14 +53,54 @@
       <section class="library-listing" aria-labelledby="library-title">
         <div class="listing-heading"><h2 id="library-title">公开资料</h2><output id="book-count" aria-live="polite"></output></div>
         <ul class="book-list" id="book-list">
-          <li data-topic="signal"><a href="https://www.ti.com/lit/an/scaa082a/scaa082a.pdf">Texas Instruments：High-Speed Layout Guidelines</a></li>
-          <li data-topic="signal"><a href="https://www.nxp.com/docs/en/user-guide/UM10204.pdf">NXP：I²C-bus specification and user manual</a></li>
-          <li data-topic="analog"><a href="https://www.analog.com/media/jp/training-seminars/tutorials/mt-101.pdf">Analog Devices：MT-101 Decoupling Techniques</a></li>
-          <li data-topic="power"><a href="https://www.tek.com/fr/documents/application-note/probing-techniques-accurate-voltage-measurements-power-converters-oscillos">Tektronix：电源转换器的示波器探测方法</a></li>
+          <li data-topic="signal" data-format="网盘" data-code="8g3y"><a href="https://pan.baidu.com/s/1ODU_F6BA5JUchk3UFpAwuA?pwd=8g3y">高速电路参考资料</a> <small class="book-meta">提取码 8g3y</small></li>
+          <li data-topic="analog" data-format="网盘" data-code="94kq"><a href="https://pan.baidu.com/s/114y9PVegVJgsS9J97kJykg?pwd=94kq">模拟电路参考资料</a> <small class="book-meta">提取码 94kq</small></li>
+          <li data-topic="power" data-format="网盘" data-code="2hpn"><a href="https://pan.baidu.com/s/1u1UszL96MaOOdwCpxNeghQ?pwd=2hpn">电源参考资料</a> <small class="book-meta">提取码 2hpn</small></li>
+          <li data-topic="reliability" data-format="网盘" data-code="9h69"><a href="https://pan.baidu.com/s/1rhsBDf0UBTGV2k61Snvmfw?pwd=9h69">可靠性参考资料</a> <small class="book-meta">提取码 9h69</small></li>
+          <li data-topic="parts" data-format="网盘" data-code="yrzm"><a href="https://pan.baidu.com/s/1A8mJYMbM0YFfOAoAv2uO4Q?pwd=yrzm">元器件参考资料</a> <small class="book-meta">提取码 yrzm</small></li>
+          <li data-topic="integrity" data-format="网盘" data-code="4itf"><a href="https://pan.baidu.com/s/10FmseIXZ1lADR5QiQ9Da8Q?pwd=4itf">信号完整性参考资料</a> <small class="book-meta">提取码 4itf</small></li>
+          <li data-topic="pcb" data-format="网盘" data-code="gypk"><a href="https://pan.baidu.com/s/1YkYkXjSlNoVEhOhgGT7spw?pwd=gypk">PCB 参考资料</a> <small class="book-meta">提取码 gypk</small></li>
+          <li data-topic="vendor" data-format="网盘" data-code="xb3r"><a href="https://pan.baidu.com/s/1tlwUhsB8LPkACzJPMO-DsA?pwd=xb3r">ADI 参考资料</a> <small class="book-meta">提取码 xb3r</small></li>
+          <li data-topic="emc" data-format="网盘" data-code="ipnp"><a href="https://pan.baidu.com/s/1QY-hDvDj5i3Sx_DrpxWHPQ?pwd=ipnp">电磁兼容参考资料</a> <small class="book-meta">提取码 ipnp</small></li>
+          <li data-topic="power" data-format="PDF"><a href="https://www.ti.com/lit/an/slva477b/slva477b.pdf">TI · 降压转换器功率级计算（SLVA477B）</a></li>
+          <li data-topic="power" data-format="PDF"><a href="https://www.ti.com/lit/an/slva372d/slva372d.pdf">TI · 升压转换器功率级计算（SLVA372D）</a></li>
+          <li data-topic="power" data-format="网页"><a href="https://www.analog.com/en/resources/app-notes/an-140.html">ADI · 线性稳压器与开关电源基础（AN-140）</a></li>
+          <li data-topic="power" data-format="网页"><a href="https://www.analog.com/en/resources/app-notes/an-149.html">ADI · 开关电源建模与环路补偿（AN-149）</a></li>
+          <li data-topic="power" data-format="下载页"><a href="https://pages.rohm.com.cn/Tech_download21_CN.html">ROHM · 降压转换器损耗分析（需填表）</a></li>
+          <li data-topic="power" data-format="PDF"><a href="https://www.ti.com/lit/an/slua850/slua850.pdf">TI · 电源输出纹波的测量方法（SLUA850）</a></li>
+          <li data-topic="analog" data-format="下载页"><a href="https://www.ti.com.cn/zh-cn/product-category/amplifiers/analog-engineers-pocket-reference-guide">TI · 模拟工程师口袋参考指南</a></li>
+          <li data-topic="analog" data-format="网页"><a href="https://www.ti.com/product-category/amplifiers/op-amps/the-signal-ebook.html">TI · The Signal 运放设计电子书</a></li>
+          <li data-topic="analog" data-format="PDF"><a href="https://www.analog.com/media/en/training-seminars/tutorials/MT-031.pdf">ADI · 数据转换器接地（MT-031）</a></li>
+          <li data-topic="analog" data-format="PDF"><a href="https://www.analog.com/media/jp/training-seminars/tutorials/mt-101.pdf">ADI · 电源去耦技术（MT-101）</a></li>
+          <li data-topic="pcb" data-format="网页"><a href="https://docs.kicad.org/9.0/en/pcbnew/pcbnew.html">KiCad · PCB 编辑器手册（9.0）</a></li>
+          <li data-topic="pcb" data-format="网页"><a href="https://docs.kicad.org/9.0/en/getting_started_in_kicad/getting_started_in_kicad.html">KiCad · 从原理图到 PCB 的入门指南（9.0）</a></li>
+          <li data-topic="pcb" data-format="下载页"><a href="https://techclass.rohm.com.cn/downloads/#dcdc">ROHM · 降压转换器布局案例（需填表）</a></li>
+          <li data-topic="signal" data-format="PDF"><a href="https://cache.nxp.com/docs/en/user-guide/UM10204.pdf">NXP · I²C 总线规范与用户手册（UM10204）</a></li>
+          <li data-topic="signal" data-format="PDF"><a href="https://www.analog.com/media/cn/training-seminars/tutorials/MT-228_cn.pdf">ADI · 高速 ADC 模拟输入接口（MT-228 中文）</a></li>
+          <li data-topic="signal" data-format="网页"><a href="https://www.usb.org/documents?search=usb+2.0+specification">USB-IF · USB 2.0 规格文档索引</a></li>
+          <li data-topic="integrity" data-format="PDF"><a href="https://www.ti.com/lit/an/scaa082a/scaa082a.pdf">TI · 高速布线设计指南（SCAA082A）</a></li>
+          <li data-topic="integrity" data-format="PDF"><a href="https://www.ti.com/lit/an/spraar7h/spraar7h.pdf">TI · 高速接口布线指南（SPRAAR7H）</a></li>
+          <li data-topic="integrity" data-format="PDF"><a href="https://download.tek.com/document/54W-22137-1.pdf">Tektronix · 信号完整性基础指南</a></li>
+          <li data-topic="emc" data-format="PDF"><a href="https://www.ti.com/lit/pdf/slva680">TI · ESD 保护电路的 PCB 布局（SLVA680A）</a></li>
+          <li data-topic="emc" data-format="PDF"><a href="https://www.ti.com/lit/an/snva489c/snva489c.pdf">TI · DC/DC 转换器传导 EMI（AN-2162）</a></li>
+          <li data-topic="emc" data-format="下载页"><a href="https://techclass.rohm.com.cn/downloads/#emc">ROHM · EMC 与噪声对策资料（需填表）</a></li>
+          <li data-topic="parts" data-format="网页"><a href="https://article.murata.com/zh-cn/article/basics-of-capacitors-1">村田 · 电容器基础</a></li>
+          <li data-topic="parts" data-format="网页"><a href="https://article.murata.com/zh-cn/article/basics-of-l-and-c-hf-characteristics-imp-and-res-1">村田 · 电感、电容的阻抗与谐振</a></li>
+          <li data-topic="parts" data-format="网页"><a href="https://article.murata.com/zh-cn/article/basics-of-capacitors-3">村田 · 贴片多层陶瓷电容器的制作方法</a></li>
+          <li data-topic="reliability" data-format="PDF"><a href="https://nepp.nasa.gov/docuploads/FFB52B88-36AE-4378-A05B2C084B5EE2CC/EEE-INST-002_add1.pdf">NASA · 元器件筛选、鉴定与降额指南（EEE-INST-002）</a></li>
+          <li data-topic="reliability" data-format="网页"><a href="https://nepp.nasa.gov/npsl/npsl_UsePolicy.htm">NASA · 元器件可靠性与选型清单使用指南</a></li>
+          <li data-topic="reliability" data-format="网页"><a href="https://www.ti.com/en-us/quality-reliability/reliability/calculators">TI · FIT 与失效率计算器</a></li>
+          <li data-topic="simulation" data-format="网页"><a href="https://www.analog.com/en/resources/design-tools-and-calculators/LTspice-simulator.html">ADI · LTspice 下载与上手指南</a></li>
+          <li data-topic="simulation" data-format="网页"><a href="https://docs.kicad.org/9.0/en/eeschema/eeschema.html#simulator">KiCad · 原理图编辑器与电路仿真手册（9.0）</a></li>
+          <li data-topic="simulation" data-format="网页"><a href="https://www.ti.com/tool/PSPICE-FOR-TI">TI · PSpice for TI 仿真工具</a></li>
+          <li data-topic="vendor" data-format="PDF"><a href="https://www.analog.com/media/cn/technical-documentation/local-resource/compilation-cftl-1.pdf">ADI · 实验室电路合集 第 1 册</a></li>
+          <li data-topic="vendor" data-format="PDF"><a href="https://www.analog.com/media/cn/technical-documentation/local-resource/compilation-cftl-2.pdf">ADI · 实验室电路合集 第 2 册</a></li>
+          <li data-topic="vendor" data-format="网页"><a href="https://www.analog.com/en/resources/reference-designs/circuits-from-the-lab.html">ADI · Circuits from the Lab 参考设计库</a></li>
+          <li data-topic="vendor" data-format="PDF"><a href="https://www.analog.com/media/en/reference-design-documentation/reference-designs/Selected-Reference-Designs-Test-and-Measurement-Anthology.pdf">ADI · 测试与测量参考设计选集</a></li>
         </ul>
         <div class="empty" id="book-empty" hidden>
           <h3>这里没有匹配的资料</h3>
-          <p>试试更短的关键词，或切换到全部主题。</p>
+          <p>试试更短的关键词，或清除主题与来源筛选。</p>
           <button class="outline" id="reset-books" type="button">清除筛选</button>
         </div>
       </section>

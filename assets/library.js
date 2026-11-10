@@ -5,7 +5,8 @@
     ['power', '电源设计'],
     ['analog', '模拟电路与运放'],
     ['pcb', 'PCB 设计'],
-    ['signal', '高速、信号与接口'],
+    ['signal', '高速电路与接口'],
+    ['integrity', '信号完整性'],
     ['emc', 'EMC 与 ESD'],
     ['parts', '元器件'],
     ['simulation', '仿真工具'],
@@ -52,9 +53,15 @@
   const picker = document.querySelector('#local-folder');
   const status = document.querySelector('#folder-status');
   const restore = document.querySelector('#restore-library');
+  const sourceControls = document.querySelector('#resource-sources');
+  const sourceButtons = [...sourceControls.querySelectorAll('[data-source]')];
   const publicItems = Array.from(list.querySelectorAll('li'), (row) => {
     const link = row.querySelector('a');
-    return { title: link.textContent, topic: row.dataset.topic, href: link.href, type: '链接' };
+    const code = row.dataset.code;
+    return {
+      title: link.textContent, topic: row.dataset.topic, href: link.href,
+      type: row.dataset.format, code, source: code ? 'baidu' : 'official'
+    };
   });
   const localIndex = location.protocol === 'file:' ? window.fieldnotesLocalBooks : null;
   const makeLocal = (path, bytes, file, href) => ({
@@ -68,13 +75,17 @@
   const sources = { public: publicItems, local: localItems, selected: [] };
   let mode = 'public';
   let topic = 'all';
+  let source = 'all';
   let objectUrls = new WeakMap();
+
+  const sourceItems = () => sources[mode].filter((book) => source === 'all' || book.source === source);
 
   function renderBooks() {
     const terms = normalize(query.value).trim().split(/\s+/).filter(Boolean);
-    const visible = sources[mode].filter((book) =>
+    const visible = sourceItems().filter((book) =>
       (topic === 'all' || book.topic === topic) && terms.every((term) =>
-        normalize([book.title, book.type, topics.get(book.topic), book.path].join(' ')).includes(term)));
+        normalize([book.title, book.type, topics.get(book.topic), book.path, book.code,
+          book.source === 'baidu' ? '百度网盘' : ''].join(' ')).includes(term)));
     count.textContent = `${visible.length} 份资料`;
     empty.hidden = visible.length !== 0;
     const rows = document.createDocumentFragment();
@@ -89,7 +100,8 @@
       title.textContent = book.title;
       const meta = document.createElement('p');
       meta.className = 'book-meta';
-      meta.textContent = [topics.get(book.topic), book.bytes === undefined ? '原始资料' :
+      meta.textContent = [topics.get(book.topic), book.code ? `百度网盘 · 提取码 ${book.code}` :
+        book.source === 'official' ? '官方资料' :
         book.bytes >= 1024 * 1024 ? `${(book.bytes / (1024 * 1024)).toFixed(1)} MiB` :
           `${Math.max(1, Math.round(book.bytes / 1024))} KiB`].join(' · ');
       detail.append(title, meta);
@@ -97,9 +109,11 @@
       link.className = 'book-open';
       link.href = book.href || '#book-list';
       link.target = '_blank';
-      link.rel = 'noopener';
-      link.textContent = book.type === '链接' ? '访问 ↗' : '打开 ↗';
-      link.setAttribute('aria-label', `${book.type === '链接' ? '访问' : '打开'} ${book.title}`);
+      link.rel = 'noopener noreferrer';
+      const action = book.source === 'baidu' ? '打开网盘' : book.type === 'PDF' ? '打开 PDF' :
+        book.type === '下载页' ? '去官网下载' : book.source === 'official' ? '访问官网' : '打开';
+      link.textContent = `${action} ↗`;
+      link.setAttribute('aria-label', `${action}：${book.title}`);
       if (book.file) {
         link.addEventListener('click', () => {
           if (!objectUrls.has(book.file)) objectUrls.set(book.file, URL.createObjectURL(book.file));
@@ -121,11 +135,10 @@
     renderBooks();
   }
 
-  function show(nextMode) {
-    mode = nextMode;
-    query.value = '';
-    const totals = new Map([['all', sources[mode].length]]);
-    for (const book of sources[mode]) totals.set(book.topic, (totals.get(book.topic) || 0) + 1);
+  function renderTopics() {
+    const books = sourceItems();
+    const totals = new Map([['all', books.length]]);
+    for (const book of books) totals.set(book.topic, (totals.get(book.topic) || 0) + 1);
     shelf.replaceChildren();
     for (const [key, label] of [['all', '全部主题'], ...topics]) {
       if (!totals.has(key)) continue;
@@ -140,12 +153,29 @@
       button.addEventListener('click', () => setTopic(key));
       shelf.append(button);
     }
+    setTopic(totals.has(topic) ? topic : 'all');
+    return totals.size - 1;
+  }
+
+  function setSource(nextSource) {
+    source = nextSource;
+    for (const button of sourceButtons) {
+      button.setAttribute('aria-pressed', String(button.dataset.source === source));
+    }
+    return renderTopics();
+  }
+
+  function show(nextMode) {
+    mode = nextMode;
+    query.value = '';
+    topic = 'all';
+    sourceControls.hidden = mode !== 'public';
+    const topicCount = setSource('all');
     heading.textContent = mode === 'public' ? '公开资料' : '本机参考书';
     restore.hidden = mode === 'public' && !localItems.length;
     restore.textContent = mode === 'public' ? '查看已整理参考书' : '查看公开资料';
-    status.textContent = mode === 'public' ? '原厂文档与开放阅读链接' :
-      `已整理 ${sources[mode].length} 份资料 · ${totals.size - 1} 个主题`;
-    setTopic('all');
+    status.textContent = mode === 'public' ? '按主题和来源查找资料' :
+      `已整理 ${sources[mode].length} 份资料 · ${topicCount} 个主题`;
   }
 
   document.querySelector('#local-access').hidden = false;
@@ -174,11 +204,15 @@
     picker.value = '';
   });
   restore.addEventListener('click', () => show(mode === 'public' ? 'local' : 'public'));
+  for (const button of sourceButtons) {
+    button.addEventListener('click', () => setSource(button.dataset.source));
+  }
   query.addEventListener('input', renderBooks);
   document.querySelector('#book-search').addEventListener('submit', (event) => event.preventDefault());
   document.querySelector('#reset-books').addEventListener('click', () => {
     query.value = '';
-    setTopic('all');
+    topic = 'all';
+    setSource('all');
     query.focus();
   });
   show(localItems.length ? 'local' : 'public');
