@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="硬件研发交流站的群友名片，按城市、研发方向和擅长领域认识同行。">
+  <meta name="theme-color" content="#f4f2eb">
+  <title>群像｜硬件手记</title>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/people.css">
+  <script src="assets/site.js" defer></script>
+  <script src="assets/people.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="masthead" id="top">
+    <div class="wrap masthead-inner">
+      <a class="brand" href="index.html" aria-label="硬件手记首页"><img src="assets/mark.svg" width="38" height="38" alt=""><span><strong>硬件手记</strong><small>给做板子的人</small></span></a>
+      <nav class="navigation" aria-label="主导航"><a href="index.html">发现</a><a href="index.html#catalog">技术笔记</a><a href="library.html">资源库</a><a href="people.html" aria-current="page">群像</a></nav>
+      <div class="header-actions"><button type="button" class="theme" data-theme-toggle aria-label="切换到夜间模式" title="切换阅读模式" hidden>☾</button></div>
+    </div>
+  </header>
+
+  <main id="main" class="wrap people">
+    <header class="people-intro">
+      <div>
+        <p class="edition"><span></span> 硬件研发交流站</p>
+        <h1>群像</h1>
+        <p>看看群友在做什么，找到同城或同方向的同行。</p>
+      </div>
+      <div class="people-guide">
+        <h2>想加入群像？</h2>
+        <p>在群里按「城市-方向」发一段自我介绍，说说你擅长什么、想交流什么，并注明愿意在网站展示。</p>
+      </div>
+    </header>
+
+    <section aria-labelledby="people-title">
+      <div class="people-toolbar">
+        <div>
+          <h2 id="people-title">群友名片</h2>
+          <output id="people-count" aria-live="polite">1 位群友</output>
+        </div>
+        <form class="search people-search" id="people-search" role="search" hidden>
+          <label class="visually-hidden" for="people-query">搜索群友</label>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 4 4"/></svg>
+          <input type="search" id="people-query" placeholder="搜城市、方向、技能…" autocomplete="off" aria-controls="people-list">
+        </form>
+      </div>
+
+      <div class="people-grid" id="people-list">
+        <article class="person-card" id="zhang-yufan" aria-labelledby="zhang-yufan-name" data-keywords="RF 电磁兼容">
+          <header class="person-header">
+            <span class="person-monogram" aria-hidden="true">宇</span>
+            <div>
+              <p class="person-direction">广州-医美硬件</p>
+              <h3 id="zhang-yufan-name">张宇凡</h3>
+            </div>
+          </header>
+          <p class="person-intro">在广州做医美设备硬件研发，主要接触射频、超声和 EMS 等能量设备。做方案时会先弄清作用机理，再一起考虑电路设计、样机验证、可靠性和量产。</p>
+          <div class="person-details">
+            <section aria-labelledby="zhang-yufan-skills">
+              <h4 id="zhang-yufan-skills">擅长</h4>
+              <ul class="person-tags" role="list">
+                <li>功率驱动</li>
+                <li>能量输出控制</li>
+                <li>阻抗匹配</li>
+                <li>发热与 EMC 排查</li>
+                <li>输出稳定性</li>
+              </ul>
+            </section>
+            <section aria-labelledby="zhang-yufan-topics">
+              <h4 id="zhang-yufan-topics">想交流</h4>
+              <p>欢迎带着实际的设计或调试问题来聊，也欢迎交换硬件参考资料、调试笔记和验证经验。</p>
+            </section>
+          </div>
+        </article>
+      </div>
+
+      <div class="empty" id="people-empty" hidden>
+        <h3>没有找到匹配的群友</h3>
+        <p>试试城市、研发方向或一个技能关键词。</p>
+        <button class="outline" id="people-reset" type="button">清除搜索</button>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><div><strong>硬件手记</strong><p>来自硬件研发交流站。</p></div><a href="#top">回到顶部 ↑</a></div></footer>
+</body>
+</html>
