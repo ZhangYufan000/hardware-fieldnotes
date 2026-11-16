@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="硬件手记：从电源、PCB、接口到板级调试，分享可在工作台验证的硬件笔记。">
-  <meta name="theme-color" content="#f4f2eb">
+  <meta name="theme-color" content="#eff4f2">
   <title>硬件手记｜把电路想明白，把板子做出来</title>
   <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/site.css">
@@ -34,27 +34,45 @@
   <main id="main" class="wrap">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="edition"><span></span> 硬件工程师的工作台笔记</p>
-        <h1 id="hero-title">把电路想明白，<br><em>把板子做出来。</em></h1>
+        <p class="edition"><span></span> 硬件设计与板级调试</p>
+        <h1 id="hero-title">把电路想明白，<br>把板子做出来。</h1>
         <p class="hero-intro">从原理图到示波器，把设计为什么这样做、遇到问题怎么查，一篇一篇讲清楚。</p>
         <div class="hero-actions">
           <a class="button" href="#catalog">浏览技术笔记 <span aria-hidden="true">↓</span></a>
           <a class="plain-action" href="library.html">查找参考资料 <span aria-hidden="true">↗</span></a>
         </div>
         <div class="lead-story">
-          <p>本期选读</p>
-          <a href="notes/ripple.html">纹波真的有那么大吗？<span aria-hidden="true">↗</span></a>
+          <p>从这篇开始</p>
+          <a href="notes/ripple.html">纹波真的有那么大吗？ <span aria-hidden="true">↗</span></a>
           <p>从探头接地开始，区分电源纹波和测量伪影。</p>
         </div>
       </div>
-      <figure class="hero-art">
+      <div class="hero-art">
         <img src="assets/workbench.webp" width="1536" height="1024" alt="蓝色调的硬件工作台插画，台灯照亮示波器、电路板、探头与纸质笔记" fetchpriority="high">
-        <figcaption><span>工作台一角</span><span>从一块板、一条波形开始</span></figcaption>
-      </figure>
+        <section class="scope" aria-labelledby="scope-title">
+          <div class="scope-heading">
+            <h2 id="scope-title"><span aria-hidden="true"></span>示波器波形演示</h2>
+            <small>示意波形</small>
+          </div>
+          <div class="scope-screen">
+            <svg viewBox="0 0 300 64" preserveAspectRatio="none" aria-hidden="true">
+              <path class="scope-axis" d="M0 32H300"></path>
+              <path class="scope-trace" data-signal="ripple" d="M0 43 L8 40 15 42 24 34 31 37 41 28 48 29 56 24 Q59 17 63 21 L71 31 80 32 89 39 97 37 105 44 114 41 123 42 132 34 141 37 150 28 158 29 167 24 Q172 17 176 21 L184 31 192 32 201 39 210 37 220 44 229 41 238 42 247 34 255 37 265 28 273 29 281 24 Q286 17 290 21 L300 33"></path>
+              <path class="scope-trace scope-square" data-signal="square" d="M0 47 H31 L34 18 H101 L104 47 H165 L168 18 H235 L238 47 H300" hidden></path>
+            </svg>
+            <span class="scope-sweep" aria-hidden="true"></span>
+          </div>
+          <div class="scope-controls" role="group" aria-label="选择示意波形" hidden>
+            <button type="button" data-trace="ripple" aria-pressed="true">电源纹波</button>
+            <button type="button" data-trace="square" aria-pressed="false">数字方波</button>
+          </div>
+          <p class="visually-hidden" id="scope-description" aria-live="polite">当前展示直流电源上的周期性小幅纹波。</p>
+        </section>
+      </div>
     </section>
 
     <section class="reading-line" aria-label="入门阅读顺序">
-      <div><span class="minor">推荐阅读路线</span><h2>从布线到读懂波形。</h2></div>
+      <div><h2>从布线到读懂波形</h2><p>按顺序读这三篇，走一遍板级调试。</p></div>
       <ol>
         <li><a href="notes/return-path.html"><span>01</span> 理解信号回流</a></li>
         <li><a href="notes/ripple.html"><span>02</span> 看懂电源波形</a></li>
@@ -68,7 +86,7 @@
         <form class="search" id="search" role="search" hidden>
           <label class="visually-hidden" for="query">搜索技术笔记</label>
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 4 4"/></svg>
-          <input type="search" id="query" placeholder="搜纹波、I²C、回流…" autocomplete="off" aria-controls="note-list">
+          <input type="search" id="query" name="q" placeholder="搜纹波、I²C、回流…" autocomplete="off" aria-controls="note-list">
           <kbd aria-hidden="true">/</kbd>
         </form>
       </div>

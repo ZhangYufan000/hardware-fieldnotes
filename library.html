@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="硬件手记资源库，按主题查找参考书和厂商原始资料。">
+  <meta name="theme-color" content="#eff4f2">
   <title>资源库｜硬件手记</title>
   <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/site.css">
@@ -27,19 +28,19 @@
         <h1>资源库</h1>
         <p>按主题查找百度网盘分享、厂商手册和在线设计资料。</p>
       </div>
-      <div class="library-access" id="local-access" hidden>
-        <strong>打开我的参考书</strong>
+      <details class="library-access" id="local-access" hidden>
+        <summary>打开本地参考书</summary>
         <p id="local-access-note">选择本机的参考书目录，网页会按主题整理，文件留在你的设备上。</p>
         <input id="local-folder" type="file" webkitdirectory multiple hidden>
         <button class="outline" type="button" id="choose-folder">选择本地书籍文件夹</button>
         <button class="outline" type="button" id="restore-library" hidden>返回默认书架</button>
-      </div>
+      </details>
     </header>
     <div class="library-tools" id="library-tools" hidden>
       <form class="search library-search" id="book-search" role="search">
         <label class="visually-hidden" for="book-query">搜索资源库</label>
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 4 4"/></svg>
-        <input type="search" id="book-query" placeholder="搜书名、主题、格式…" autocomplete="off" aria-controls="book-list">
+        <input type="search" id="book-query" name="q" placeholder="搜书名、主题、格式…" autocomplete="off" aria-controls="book-list">
       </form>
       <div class="filters library-sources" id="resource-sources" role="group" aria-label="资源来源" hidden>
         <button type="button" data-source="all" aria-pressed="true">全部来源</button>

@@ -1,11 +1,10 @@
-.people { padding-block: 41px 64px; }
+.people { padding-block: clamp(19px, 3.3vw, 42px) 64px; }
 .people-intro {
   display: grid;
   grid-template-columns: 1fr minmax(240px, 330px);
   align-items: end;
   gap: 22px 36px;
-  padding-bottom: 25px;
-  border-bottom: 1px solid var(--rule);
+  padding-bottom: clamp(22px, 3.5vw, 38px);
 }
 .people-intro h1 { font: 900 clamp(44px, 6vw, 73px)/1.12 var(--serif); margin-block: 10px 8px; }
 .people-intro p, .people-toolbar output, .person-details p { color: var(--muted); }
@@ -31,12 +30,13 @@
 .people-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
-  gap: 14px;
+  gap: 18px;
 }
 .person-card {
   padding: clamp(18px, 3vw, 32px);
   border: 1px solid var(--rule);
-  border-radius: 8px;
+  border-top: 3px solid var(--blue);
+  border-radius: 11px;
   background: var(--card);
 }
 .person-card:target { border-color: var(--blue); }
@@ -46,7 +46,7 @@
   place-items: center;
   flex: 0 0 62px;
   height: 62px;
-  border-radius: 7px;
+  border-radius: 9px;
   color: var(--blue);
   background: var(--wash);
   font: 800 28px/1 var(--serif);
@@ -67,6 +67,6 @@
 .person-details p { max-width: 42ch; font-size: 14px; }
 @media (max-width: 760px) {
   .people { padding-block: 24px 44px; }
-  .people-intro { grid-template-columns: 1fr; gap: 15px; padding-bottom: 16px; }
+  .people-intro { grid-template-columns: 1fr; gap: 15px; }
   .people-search { width: 100%; }
 }
