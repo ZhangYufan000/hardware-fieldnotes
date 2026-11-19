@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eff4f2">
+  <meta name="description" content="精密 SAR ADC 的 RC 要兼顾噪声和采样建立时间，多路切换时尤其要检查大阶跃。">
+  <title>ADC 前面的 RC，滤得越狠越好吗？｜硬件手记</title>
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="masthead" id="top">
+    <div class="wrap masthead-inner">
+      <a class="brand" href="../index.html" aria-label="硬件手记首页"><img src="../assets/mark.svg" width="38" height="38" alt=""><span><strong>硬件手记</strong><small>给做板子的人</small></span></a>
+      <nav class="navigation" aria-label="主导航"><a href="../index.html">发现</a><a href="../index.html#catalog" aria-current="true">技术笔记</a><a href="../library.html">资源库</a><a href="../people.html">群像</a></nav>
+      <div class="header-actions"><a class="search-link" href="../index.html#search">搜索</a><button type="button" class="theme" data-theme-toggle aria-label="切换到夜间模式" title="切换阅读模式" hidden>☾</button></div>
+    </div>
+  </header>
+  <main class="wrap reader" id="main">
+    <a class="back" href="../index.html#catalog">← 返回技术笔记</a>
+    <article>
+      <header class="article-header">
+        <p class="article-topic">模拟 / 信号链设计 · <time datetime="2026-11-18">2026-11-18</time></p>
+        <h1>ADC 前面的 RC，滤得越狠越好吗？</h1>
+        <p class="dek">精密 SAR ADC 的 RC 要兼顾噪声和采样建立时间，多路切换时尤其要检查大阶跃。</p>
+      </header>
+      <div class="reader-grid">
+        <div class="article-body">
+          <p>精密 SAR ADC 的输入在采集阶段会连接内部采样电容。前级需要在有限时间内把电压建立到要求的精度。外部 RC 可以限制宽带噪声、缓冲电荷回冲，也可能让输入建立变慢。</p>
+          <section aria-labelledby="timing">
+            <h2 id="timing">先找采集窗口有多长</h2>
+            <p>从 ADC 时序图找出 acquisition time，结合实际采样速率与接口时序判断可用建立时间。转换周期中并非每一段都能给输入采样电容充电。多路复用器还会让相邻通道之间产生大幅电压阶跃。</p>
+          </section>
+          <section aria-labelledby="model">
+            <h2 id="model">用单极点模型看数量级</h2>
+            <p>若输入是满量程阶跃、仅考虑一阶 RC，要将残差压到 N 位的半个 LSB 以内，需 t ≥ (N + 1) × ln(2) × RC。16 位约为 11.8 个时间常数。</p><p>例如 R = 1 kΩ、C = 1 nF，时间常数为 1 μs，按此模型需约 11.8 μs。实际链路还有运放大信号建立、ADC 内部开关及电容，因此这个计算只用于发现明显不够的时间余量。</p>
+          </section>
+          <section aria-labelledby="driver">
+            <h2 id="driver">滤波器和驱动放大器一起选</h2>
+            <p>核对运放的摆率、规定精度下的建立时间、噪声、输入共模与输出摆幅。输出直接带电容时还要检查稳定性。依据 ADC 推荐输入网络和放大器资料，联合确定串联电阻与电容。</p>
+          </section>
+          <section aria-labelledby="verify">
+            <h2 id="verify">用通道跳变做验证</h2>
+            <p>先固定直流输入检查静态误差，再比较不同采样率和通道切换顺序。让相邻通道跨较大幅度跳变，观察首个样本和后续样本的差异。还需按信号带宽设计抗混叠滤波，驱动端的电荷回冲 RC 不一定承担同样的任务。</p>
+          </section>
+          <section class="sources" aria-labelledby="sources-title"><h2 id="sources-title">参考资料</h2><ul><li><a href="https://www.analog.com/en/resources/analog-dialogue/articles/front-end-amp-and-rc-filter-design.html">ADI，《Front-End Amplifier and RC Filter Design for a Precision SAR Analog-to-Digital Converter》，RC 带宽、复用时序和放大器选择。</a></li><li><a href="https://www.analog.com/en/resources/analog-dialogue/articles/practical-filter-design-precision-adcs.html">ADI，《Practical Filter Design Challenges and Considerations for Precision ADCs》，滤波、建立与 ADC 输入模型。</a></li></ul></section>
+          <div class="article-end"><a href="../index.html#catalog">浏览全部笔记</a><a href="opamp-noise.html">接着读：运放噪声与带宽 ↗</a></div>
+        </div>
+        <nav class="toc" aria-label="文章目录"><strong>这篇怎么读</strong><ul><li><a href="#timing">先找采集窗口有多长</a></li><li><a href="#model">用单极点模型看数量级</a></li><li><a href="#driver">滤波器和驱动放大器一起选</a></li><li><a href="#verify">用通道跳变做验证</a></li><li><a href="#sources-title">参考资料</a></li></ul></nav>
+      </div>
+    </article>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><div><strong>硬件手记</strong><p>把测量条件写清楚，把判断留给证据。</p></div><a href="#top">回到顶部 ↑</a></div></footer>
+</body>
+</html>

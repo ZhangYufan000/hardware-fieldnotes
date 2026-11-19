@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eff4f2">
+  <meta name="description" content="自举供电需要补充电荷。先看驱动电源如何充电，再讨论占空比能开多大。">
+  <title>高侧 MOSFET 为什么不能一直开着？｜硬件手记</title>
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="masthead" id="top">
+    <div class="wrap masthead-inner">
+      <a class="brand" href="../index.html" aria-label="硬件手记首页"><img src="../assets/mark.svg" width="38" height="38" alt=""><span><strong>硬件手记</strong><small>给做板子的人</small></span></a>
+      <nav class="navigation" aria-label="主导航"><a href="../index.html">发现</a><a href="../index.html#catalog" aria-current="true">技术笔记</a><a href="../library.html">资源库</a><a href="../people.html">群像</a></nav>
+      <div class="header-actions"><a class="search-link" href="../index.html#search">搜索</a><button type="button" class="theme" data-theme-toggle aria-label="切换到夜间模式" title="切换阅读模式" hidden>☾</button></div>
+    </div>
+  </header>
+  <main class="wrap reader" id="main">
+    <a class="back" href="../index.html#catalog">← 返回技术笔记</a>
+    <article>
+      <header class="article-header">
+        <p class="article-topic">电源 / 驱动设计 · <time datetime="2026-11-18">2026-11-18</time></p>
+        <h1>高侧 MOSFET 为什么不能一直开着？</h1>
+        <p class="dek">自举供电需要补充电荷。先看驱动电源如何充电，再讨论占空比能开多大。</p>
+      </header>
+      <div class="reader-grid">
+        <div class="article-body">
+          <p>采用二极管和电容自举供电的半桥，高侧驱动以开关节点为参考。开关节点降到足够低的电位时，自举电容才能经二极管充电。高侧导通后，电容随开关节点一起升高，为高侧驱动提供浮动电源。</p>
+          <section aria-labelledby="charge">
+            <h2 id="charge">导通期间，电荷从哪里来</h2>
+            <p>自举电容需要承担 MOSFET 的栅极充电、驱动器静态消耗和漏电。高侧保持导通越久，剩余电压可能越低。普通自举结构无法靠一个电容无限维持高侧导通，要核对驱动器是否另有电荷泵或独立浮动电源。</p>
+          </section>
+          <section aria-labelledby="estimate">
+            <h2 id="estimate">用电荷估算一次压降</h2>
+            <p>用 C<sub>BOOT,eff</sub> ≥ Q<sub>total</sub> / ΔV 估算起点，Q<sub>total</sub> 包括栅极电荷及该导通时间内的其他消耗。假设总耗电荷为 60 nC，有效电容为 220 nF，则电压下降约 0.27 V。这组假设只演示电荷关系。</p><p>允许压降要根据实际充电电压、二极管压降、高侧欠压锁定阈值和所需栅极驱动电压确定。陶瓷电容还要计入偏压下的有效容量。</p>
+          </section>
+          <section aria-labelledby="refresh">
+            <h2 id="refresh">电容加大，也要留出充电时间</h2>
+            <p>充电路径中的二极管、电阻及驱动电源阻抗会限制补电速度。容量越大，启动时需要补充的电荷也越多。要一起检查最低开关节点电位、最短低侧导通时间、首次启动和最长高侧脉冲。</p>
+          </section>
+          <section aria-labelledby="verify">
+            <h2 id="verify">在实际波形上核对</h2>
+            <p>在已确认安全的测试条件下，用合适的差分测量检查 BOOT 与开关节点之间的电压，以及高侧栅源电压。固定输入、负载和频率，逐步改变导通时间，观察电压最低点和欠压锁定行为。以器件数据手册的阈值与推荐工作范围判断余量。</p>
+          </section>
+          <section class="sources" aria-labelledby="sources-title"><h2 id="sources-title">参考资料</h2><ul><li><a href="https://www.ti.com/lit/an/slua887a/slua887a.pdf">TI，SLUA887A《Bootstrap Circuitry Selection for Half-Bridge Configurations》，§2、§3.1、§3.4 和 §4。</a></li><li><a href="https://www.ti.com/lit/an/slua618a/slua618a.pdf">TI，SLUA618A《Fundamentals of MOSFET and IGBT Gate Driver Circuits》，自举高侧驱动及启动条件。</a></li></ul></section>
+          <div class="article-end"><a href="../index.html#catalog">浏览全部笔记</a><a href="mlcc-dc-bias.html">接着读：陶瓷电容的有效容量 ↗</a></div>
+        </div>
+        <nav class="toc" aria-label="文章目录"><strong>这篇怎么读</strong><ul><li><a href="#charge">导通期间，电荷从哪里来</a></li><li><a href="#estimate">用电荷估算一次压降</a></li><li><a href="#refresh">电容加大，也要留出充电时间</a></li><li><a href="#verify">在实际波形上核对</a></li><li><a href="#sources-title">参考资料</a></li></ul></nav>
+      </div>
+    </article>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><div><strong>硬件手记</strong><p>把测量条件写清楚，把判断留给证据。</p></div><a href="#top">回到顶部 ↑</a></div></footer>
+</body>
+</html>

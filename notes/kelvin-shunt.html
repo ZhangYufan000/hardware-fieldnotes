@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eff4f2">
+  <meta name="description" content="毫欧级采样中，铜皮和焊盘电阻也会进入结果。把载流路径和电压取样位置画清楚。">
+  <title>采样电阻很准，电流为什么还会读偏？｜硬件手记</title>
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="masthead" id="top">
+    <div class="wrap masthead-inner">
+      <a class="brand" href="../index.html" aria-label="硬件手记首页"><img src="../assets/mark.svg" width="38" height="38" alt=""><span><strong>硬件手记</strong><small>给做板子的人</small></span></a>
+      <nav class="navigation" aria-label="主导航"><a href="../index.html">发现</a><a href="../index.html#catalog" aria-current="true">技术笔记</a><a href="../library.html">资源库</a><a href="../people.html">群像</a></nav>
+      <div class="header-actions"><a class="search-link" href="../index.html#search">搜索</a><button type="button" class="theme" data-theme-toggle aria-label="切换到夜间模式" title="切换阅读模式" hidden>☾</button></div>
+    </div>
+  </header>
+  <main class="wrap reader" id="main">
+    <a class="back" href="../index.html#catalog">← 返回技术笔记</a>
+    <article>
+      <header class="article-header">
+        <p class="article-topic">PCB / 采样布局 · <time datetime="2026-11-18">2026-11-18</time></p>
+        <h1>采样电阻很准，电流为什么还会读偏？</h1>
+        <p class="dek">毫欧级采样中，铜皮和焊盘电阻也会进入结果。把载流路径和电压取样位置画清楚。</p>
+      </header>
+      <div class="reader-grid">
+        <div class="article-body">
+          <p>用放大器测量分流电阻两端压降时，取样点决定了哪些电阻被计入。若取样线从载流铜皮上引出，读数可能包含电阻本体以外的压降，形成随电流变化的误差。</p>
+          <section aria-labelledby="kelvin">
+            <h2 id="kelvin">取样线从指定端点引出</h2>
+            <p>开尔文连接用独立的电压取样线回到放大器输入，大电流经另一条路径流过电阻。四端分流器按厂商规定的 force 与 sense 焊盘连接。两端器件则要按其推荐焊盘和取样位置设计。</p>
+          </section>
+          <section aria-labelledby="example">
+            <h2 id="example">估算一段多余铜阻的影响</h2>
+            <p>假设分流电阻为 5 mΩ，两侧取样合计又包含了 0.5 mΩ 的载流寄生电阻，软件仍按 5 mΩ 换算，则仅这一项就会造成约 10% 的比例误差。此处忽略温度及放大器误差，用来说明取样位置的影响。</p>
+          </section>
+          <section aria-labelledby="routing">
+            <h2 id="routing">输入和输出都要有参考</h2>
+            <p>让两根输入取样线靠近布置，避开高 dv/dt 节点。输入滤波按放大器推荐方式设计，元件不匹配可能降低共模抑制。还要核对输入共模范围、供电、参考引脚和输出摆幅，尤其是高侧及双向采样。</p>
+          </section>
+          <section aria-labelledby="verify">
+            <h2 id="verify">从原始电压逐段排查</h2>
+            <p>按器件允许范围接入可控负载，分别测电阻本体的压降、放大器输入及输出。用多个电流点比较斜率和零点，区分比例误差、失调及热漂移。检查 ADC 参考和换算增益，再决定是否校准。</p>
+          </section>
+          <section class="sources" aria-labelledby="sources-title"><h2 id="sources-title">参考资料</h2><ul><li><a href="https://www.ti.com/lit/ds/symlink/ina240.pdf">TI，INA240 数据手册，§11.1.1 Connection to the Current-Sense Resistor 与 Figure 11-1。</a></li><li><a href="https://www.ti.com/document-viewer/lit/html/SSZT805/GUID-5F278960-BA94-4362-9099-87ABC753A4D6">TI，SSZT805《How to Lay Out a PCB for High-Performance, Low-Side Current-Sensing Designs》，寄生铜阻与开尔文连接。</a></li></ul></section>
+          <div class="article-end"><a href="../index.html#catalog">浏览全部笔记</a><a href="sar-adc-driver.html">接着读：采样链路的 ADC 输入驱动 ↗</a></div>
+        </div>
+        <nav class="toc" aria-label="文章目录"><strong>这篇怎么读</strong><ul><li><a href="#kelvin">取样线从指定端点引出</a></li><li><a href="#example">估算一段多余铜阻的影响</a></li><li><a href="#routing">输入和输出都要有参考</a></li><li><a href="#verify">从原始电压逐段排查</a></li><li><a href="#sources-title">参考资料</a></li></ul></nav>
+      </div>
+    </article>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><div><strong>硬件手记</strong><p>把测量条件写清楚，把判断留给证据。</p></div><a href="#top">回到顶部 ↑</a></div></footer>
+</body>
+</html>

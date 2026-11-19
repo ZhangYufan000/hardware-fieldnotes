@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eff4f2">
+  <meta name="description" content="端接匹配传输线，偏置确定空闲电平。先辨认主干和两端，再检查每个节点。">
+  <title>RS-485 的 120 Ω，应该放在哪里？｜硬件手记</title>
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="masthead" id="top">
+    <div class="wrap masthead-inner">
+      <a class="brand" href="../index.html" aria-label="硬件手记首页"><img src="../assets/mark.svg" width="38" height="38" alt=""><span><strong>硬件手记</strong><small>给做板子的人</small></span></a>
+      <nav class="navigation" aria-label="主导航"><a href="../index.html">发现</a><a href="../index.html#catalog" aria-current="true">技术笔记</a><a href="../library.html">资源库</a><a href="../people.html">群像</a></nav>
+      <div class="header-actions"><a class="search-link" href="../index.html#search">搜索</a><button type="button" class="theme" data-theme-toggle aria-label="切换到夜间模式" title="切换阅读模式" hidden>☾</button></div>
+    </div>
+  </header>
+  <main class="wrap reader" id="main">
+    <a class="back" href="../index.html#catalog">← 返回技术笔记</a>
+    <article>
+      <header class="article-header">
+        <p class="article-topic">接口 / 总线调试 · <time datetime="2026-11-18">2026-11-18</time></p>
+        <h1>RS-485 的 120 Ω，应该放在哪里？</h1>
+        <p class="dek">端接匹配传输线，偏置确定空闲电平。先辨认主干和两端，再检查每个节点。</p>
+      </header>
+      <div class="reader-grid">
+        <div class="article-body">
+          <p>典型 RS-485 总线采用一条主干连接多个短支线节点。并联端接应匹配电缆特性阻抗。常见 120 Ω 线缆的端接放在主干两个物理末端，需要按线路和驱动边沿判断传输线效应。</p>
+          <section aria-labelledby="ends">
+            <h2 id="ends">先找物理末端</h2>
+            <p>节点多不代表每个节点都要装端接。把多块板上的端接跳帽画出来，检查末端位置和支线长度。过多端接会增加驱动负载，长支线则可能引入反射。判断支线影响时要看驱动上升时间与电缆传播延迟。</p>
+          </section>
+          <section aria-labelledby="bias">
+            <h2 id="bias">空闲偏置另外核对</h2>
+            <p>端接电阻不负责建立空闲差分电压。先确认收发器内置 failsafe 覆盖开路、短路及空闲中的哪些情况。需要外部偏置时，要把端接、节点输入负载、电源容差和阈值一起算入。</p><p>在线路断电、无额外并联通路的简化条件下，两个 120 Ω 端接在 A、B 间的等效值约 60 Ω。实际电路中的偏置和保护网络也可能影响万用表读数。</p>
+          </section>
+          <section aria-labelledby="reference">
+            <h2 id="reference">差分信号也有共模范围</h2>
+            <p>核对收发器输入允许的共模范围，以及两端地电位差和参考连接。接地、屏蔽、保护及隔离应按系统环境设计。A、B 标签在不同设备上可能存在命名差异，接线以双方数据手册的真值表为依据。</p>
+          </section>
+          <section aria-labelledby="verify">
+            <h2 id="verify">把总线和使能信号一起看</h2>
+            <p>在靠近远端接收器的位置观察差分电压，再核对 DE、接收使能和换向时序。比较单节点与完整网络、短线与实际线长的结果，记录端接、偏置、速率和节点数量，定位负载、反射与时序问题。</p>
+          </section>
+          <section class="sources" aria-labelledby="sources-title"><h2 id="sources-title">参考资料</h2><ul><li><a href="https://www.ti.com/lit/an/slla272d/slla272d.pdf">TI，SLLA272D《The RS-485 Design Guide》，§3 网络拓扑、§6 端接与支线、§7 failsafe。</a></li></ul></section>
+          <div class="article-end"><a href="../index.html#catalog">浏览全部笔记</a><a href="uart.html">接着读：串口无输出的排查起点 ↗</a></div>
+        </div>
+        <nav class="toc" aria-label="文章目录"><strong>这篇怎么读</strong><ul><li><a href="#ends">先找物理末端</a></li><li><a href="#bias">空闲偏置另外核对</a></li><li><a href="#reference">差分信号也有共模范围</a></li><li><a href="#verify">把总线和使能信号一起看</a></li><li><a href="#sources-title">参考资料</a></li></ul></nav>
+      </div>
+    </article>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><div><strong>硬件手记</strong><p>把测量条件写清楚，把判断留给证据。</p></div><a href="#top">回到顶部 ↑</a></div></footer>
+</body>
+</html>

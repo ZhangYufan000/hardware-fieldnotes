@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eff4f2">
+  <meta name="description" content="把导通、开关和驱动损耗逐项估算，才能知道换管子应该改善哪个参数。">
+  <title>MOSFET 发热，只看导通电阻够吗？｜硬件手记</title>
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="masthead" id="top">
+    <div class="wrap masthead-inner">
+      <a class="brand" href="../index.html" aria-label="硬件手记首页"><img src="../assets/mark.svg" width="38" height="38" alt=""><span><strong>硬件手记</strong><small>给做板子的人</small></span></a>
+      <nav class="navigation" aria-label="主导航"><a href="../index.html">发现</a><a href="../index.html#catalog" aria-current="true">技术笔记</a><a href="../library.html">资源库</a><a href="../people.html">群像</a></nav>
+      <div class="header-actions"><a class="search-link" href="../index.html#search">搜索</a><button type="button" class="theme" data-theme-toggle aria-label="切换到夜间模式" title="切换阅读模式" hidden>☾</button></div>
+    </div>
+  </header>
+  <main class="wrap reader" id="main">
+    <a class="back" href="../index.html#catalog">← 返回技术笔记</a>
+    <article>
+      <header class="article-header">
+        <p class="article-topic">电源 / 损耗估算 · <time datetime="2026-11-18">2026-11-18</time></p>
+        <h1>MOSFET 发热，只看导通电阻够吗？</h1>
+        <p class="dek">把导通、开关和驱动损耗逐项估算，才能知道换管子应该改善哪个参数。</p>
+      </header>
+      <div class="reader-grid">
+        <div class="article-body">
+          <p>在硬开关同步 Buck 中，MOSFET 的温升同时受导通损耗、开关过程和散热条件影响。数据手册首页的导通电阻通常对应特定栅压与结温，不能直接代表热态的全部损耗。</p>
+          <section aria-labelledby="conduction">
+            <h2 id="conduction">先用有效值算导通损耗</h2>
+            <p>P<sub>cond</sub> ≈ I<sub>RMS</sub>² × R<sub>DS(on)</sub>。这里的电流是该 MOSFET 在整个周期内的有效值，包含其导通占比和电感纹波。假设有效值为 3 A、热态导通电阻为 12 mΩ，导通损耗约 0.108 W。</p>
+          </section>
+          <section aria-labelledby="switching">
+            <h2 id="switching">再看电压和电流重叠</h2>
+            <p>对电压、电流近似线性变化的硬开关，用 P<sub>sw</sub> ≈ ½ × V × I × (t<sub>r</sub> + t<sub>f</sub>) × f<sub>s</sub> 粗估。假设 12 V、3 A、总重叠时间 40 ns、500 kHz，得到约 0.36 W。</p><p>这个简化模型用于看数量级。实际结果还受驱动电流、米勒平台、共源电感、输出电容和反向恢复影响。软开关条件要用相应模型分析。</p>
+          </section>
+          <section aria-labelledby="budget">
+            <h2 id="budget">把损耗放到正确的位置</h2>
+            <p>栅极驱动所需功率可从 Q<sub>g</sub> × V<sub>drive</sub> × f<sub>s</sub> 估算，热量会分散到驱动器和栅极电阻等位置。体二极管死区导通、反向恢复和输出电容相关损耗也要按器件与拓扑核对，避免漏算或重复计入。</p>
+          </section>
+          <section aria-labelledby="verify">
+            <h2 id="verify">用对照测试区分原因</h2>
+            <p>固定输入电压和负载，比较不同频率、栅极电阻和驱动电压下的波形与稳态温升。调整驱动时同时核对振铃、最大栅压、死区和误导通。计算瞬时功率前要对电压与电流通道去偏斜，探头时间差会显著影响积分结果。</p>
+          </section>
+          <section class="sources" aria-labelledby="sources-title"><h2 id="sources-title">参考资料</h2><ul><li><a href="https://www.ti.com/lit/an/slpa009a/slpa009a.pdf">TI，SLPA009A《Power Loss Calculation With Common Source Inductance Consideration for Synchronous Buck Converters》，§2–3。</a></li><li><a href="https://map-assets.tek.com/map-assets/amr/pdf/AMR_AN_PDF_75W-61623-4_AFG_Oscilloscope_Double_Pulse_Test_App_Note_040725.pdf#page=17">Tektronix，《Double Pulse Testing for Power Semiconductor Devices with an Oscilloscope and Arbitrary Function Generator》，PDF 第17页，探头去偏斜与开关能量测量。</a></li></ul></section>
+          <div class="article-end"><a href="../index.html#catalog">浏览全部笔记</a><a href="buck-inductor.html">接着读：Buck 电感纹波与峰值电流 ↗</a></div>
+        </div>
+        <nav class="toc" aria-label="文章目录"><strong>这篇怎么读</strong><ul><li><a href="#conduction">先用有效值算导通损耗</a></li><li><a href="#switching">再看电压和电流重叠</a></li><li><a href="#budget">把损耗放到正确的位置</a></li><li><a href="#verify">用对照测试区分原因</a></li><li><a href="#sources-title">参考资料</a></li></ul></nav>
+      </div>
+    </article>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><div><strong>硬件手记</strong><p>把测量条件写清楚，把判断留给证据。</p></div><a href="#top">回到顶部 ↑</a></div></footer>
+</body>
+</html>

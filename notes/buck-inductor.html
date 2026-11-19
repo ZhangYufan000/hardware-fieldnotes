@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eff4f2">
+  <meta name="description" content="用纹波推导峰值电流，再分别核对饱和、温升和控制器允许的电感范围。">
+  <title>Buck 电感怎么选，先算峰值还是额定电流？｜硬件手记</title>
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="masthead" id="top">
+    <div class="wrap masthead-inner">
+      <a class="brand" href="../index.html" aria-label="硬件手记首页"><img src="../assets/mark.svg" width="38" height="38" alt=""><span><strong>硬件手记</strong><small>给做板子的人</small></span></a>
+      <nav class="navigation" aria-label="主导航"><a href="../index.html">发现</a><a href="../index.html#catalog" aria-current="true">技术笔记</a><a href="../library.html">资源库</a><a href="../people.html">群像</a></nav>
+      <div class="header-actions"><a class="search-link" href="../index.html#search">搜索</a><button type="button" class="theme" data-theme-toggle aria-label="切换到夜间模式" title="切换阅读模式" hidden>☾</button></div>
+    </div>
+  </header>
+  <main class="wrap reader" id="main">
+    <a class="back" href="../index.html#catalog">← 返回技术笔记</a>
+    <article>
+      <header class="article-header">
+        <p class="article-topic">电源 / 计算例题 · <time datetime="2026-11-18">2026-11-18</time></p>
+        <h1>Buck 电感怎么选，先算峰值还是额定电流？</h1>
+        <p class="dek">用纹波推导峰值电流，再分别核对饱和、温升和控制器允许的电感范围。</p>
+      </header>
+      <div class="reader-grid">
+        <div class="article-body">
+          <p>选电感时，先查控制器推荐电感范围、开关频率和限流机制，再做电流估算。下面用理想 Buck 的连续导通模式说明关系，实际设计还需带入效率、压降、容差和频率变化。</p>
+          <section aria-labelledby="ripple">
+            <h2 id="ripple">先算电流的峰峰值</h2>
+            <p>理想稳态占空比 D ≈ V<sub>OUT</sub> / V<sub>IN</sub>。电感电流纹波为 ΔI<sub>L</sub> ≈ (V<sub>IN</sub> − V<sub>OUT</sub>) × D / (L × f<sub>s</sub>)，峰值约 I<sub>OUT</sub> + ΔI<sub>L</sub> / 2。</p><p>假设输入 24 V、输出 5 V/2 A、频率 500 kHz、电感 10 μH，得到 D ≈ 0.208、纹波约 0.792 A、峰值约 2.40 A。这是理想计算例子。</p>
+          </section>
+          <section aria-labelledby="ratings">
+            <h2 id="ratings">饱和电流和温升电流分别检查</h2>
+            <p>饱和电流通常按电感量下降到指定比例定义，温升电流按规定测试条件下的升温定义，两者条件由电感厂商给出。核对工作温度、饱和曲线和器件公差，不能把两个额定值互换。</p><p>对于三角形纹波，电感有效值可近似为 √(I<sub>OUT</sub>² + ΔI<sub>L</sub>² / 12)，铜损约为 I<sub>RMS</sub>² × DCR。磁芯损耗还与频率、磁通变化和材料有关。</p>
+          </section>
+          <section aria-labelledby="corners">
+            <h2 id="corners">把启动和限流也算进来</h2>
+            <p>在输入范围、频率公差和电感最小值处重算纹波。再检查启动、负载跃变和故障限流期间的电流范围，确认控制器采取峰值限流还是谷值限流。电感饱和后的电流上升会更快。</p>
+          </section>
+          <section aria-labelledby="verify">
+            <h2 id="verify">到板上确认三个结果</h2>
+            <p>在代表性及边界工况下观察电感电流波形、输出电压和热稳态温升。查有无斜率突变、异常限流和噪声。轻载进入断续模式或跳脉冲后，要按实际工作模式重新解释波形。</p>
+          </section>
+          <section class="sources" aria-labelledby="sources-title"><h2 id="sources-title">参考资料</h2><ul><li><a href="https://www.ti.com/lit/an/slva477b/slva477b.pdf">TI，《Basic Calculation of a Buck Converter’s Power Stage》，§2 最大开关电流、§3 电感选型。</a></li></ul></section>
+          <div class="article-end"><a href="../index.html#catalog">浏览全部笔记</a><a href="buck-hot-loop.html">接着读：Buck 热回路布局 ↗</a></div>
+        </div>
+        <nav class="toc" aria-label="文章目录"><strong>这篇怎么读</strong><ul><li><a href="#ripple">先算电流的峰峰值</a></li><li><a href="#ratings">饱和电流和温升电流分别检查</a></li><li><a href="#corners">把启动和限流也算进来</a></li><li><a href="#verify">到板上确认三个结果</a></li><li><a href="#sources-title">参考资料</a></li></ul></nav>
+      </div>
+    </article>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><div><strong>硬件手记</strong><p>把测量条件写清楚，把判断留给证据。</p></div><a href="#top">回到顶部 ↑</a></div></footer>
+</body>
+</html>

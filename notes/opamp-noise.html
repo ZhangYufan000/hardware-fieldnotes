@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eff4f2">
+  <meta name="description" content="噪声密度、源阻抗、噪声增益和积分带宽要一起看，先判断哪一项占主导。">
+  <title>运放噪声很低，为什么输出还是很吵？｜硬件手记</title>
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="masthead" id="top">
+    <div class="wrap masthead-inner">
+      <a class="brand" href="../index.html" aria-label="硬件手记首页"><img src="../assets/mark.svg" width="38" height="38" alt=""><span><strong>硬件手记</strong><small>给做板子的人</small></span></a>
+      <nav class="navigation" aria-label="主导航"><a href="../index.html">发现</a><a href="../index.html#catalog" aria-current="true">技术笔记</a><a href="../library.html">资源库</a><a href="../people.html">群像</a></nav>
+      <div class="header-actions"><a class="search-link" href="../index.html#search">搜索</a><button type="button" class="theme" data-theme-toggle aria-label="切换到夜间模式" title="切换阅读模式" hidden>☾</button></div>
+    </div>
+  </header>
+  <main class="wrap reader" id="main">
+    <a class="back" href="../index.html#catalog">← 返回技术笔记</a>
+    <article>
+      <header class="article-header">
+        <p class="article-topic">模拟 / 噪声估算 · <time datetime="2026-11-18">2026-11-18</time></p>
+        <h1>运放噪声很低，为什么输出还是很吵？</h1>
+        <p class="dek">噪声密度、源阻抗、噪声增益和积分带宽要一起看，先判断哪一项占主导。</p>
+      </header>
+      <div class="reader-grid">
+        <div class="article-body">
+          <p>手册里的 nV/√Hz 是某个频率处的输入电压噪声密度。输出噪声还取决于电流噪声、外部电阻、频率响应和供电、布线带入的干扰。先统一参考端和测量带宽，再比较数据。</p>
+          <section aria-labelledby="sources">
+            <h2 id="sources">列出电压、电流和电阻噪声</h2>
+            <p>电流噪声流过源阻抗，会转换成输入电压噪声。源阻抗较高时，这一项可能比电压噪声更显著。电阻热噪声密度为 √(4kTR)，其中 T 用开尔文温度。反馈电阻和偏置网络也会贡献噪声。</p>
+          </section>
+          <section aria-labelledby="bandwidth">
+            <h2 id="bandwidth">把密度积分到实际带宽</h2>
+            <p>对白噪声密度近似恒定、增益近似恒定的一段频带，可用 e<sub>RMS</sub> ≈ e<sub>n</sub> × √BW<sub>EN</sub>。假设电压噪声密度为 5 nV/√Hz、等效噪声带宽为 100 kHz，输入等效噪声约 1.58 μV RMS。</p><p>一阶低通的等效噪声带宽约为 1.57 倍截止频率。低频 1/f 噪声和频率相关噪声增益需要另外积分，不能把所有曲线都视为水平直线。</p>
+          </section>
+          <section aria-labelledby="gain">
+            <h2 id="gain">用噪声增益折算输出</h2>
+            <p>对于基本电阻反馈电路，运放输入电压噪声按噪声增益 1 + R<sub>f</sub>/R<sub>g</sub> 放大。反相放大器的信号增益幅值 R<sub>f</sub>/R<sub>g</sub> 与它不同。彼此不相关的噪声源按功率相加，即均方根合成。</p>
+          </section>
+          <section aria-labelledby="verify">
+            <h2 id="verify">测量时先固定条件</h2>
+            <p>定义输入端接、负载、滤波、仪器底噪和测量带宽。比较降低带宽、减小源阻抗前后的变化，再检查开关频率相关的离散谱线。宽带器件噪声和窄带外部干扰应按各自机制定位。</p>
+          </section>
+          <section class="sources" aria-labelledby="sources-title"><h2 id="sources-title">参考资料</h2><ul><li><a href="https://www.analog.com/media/en/training-seminars/tutorials/MT-047.pdf">ADI，MT-047《Op Amp Noise》，电压噪声、电流噪声与电阻热噪声。</a></li><li><a href="https://www.analog.com/media/en/training-seminars/tutorials/MT-048.pdf">ADI，MT-048《Op Amp Noise Relationships: 1/f Noise, RMS Noise, and Equivalent Noise Bandwidth》。</a></li><li><a href="https://www.analog.com/media/en/training-seminars/tutorials/MT-049.pdf">ADI，MT-049《Op Amp Total Output Noise Calculations for Single-Pole System》，噪声增益与输出噪声。</a></li></ul></section>
+          <div class="article-end"><a href="../index.html#catalog">浏览全部笔记</a><a href="sar-adc-driver.html">接着读：ADC 前端的 RC 与建立时间 ↗</a></div>
+        </div>
+        <nav class="toc" aria-label="文章目录"><strong>这篇怎么读</strong><ul><li><a href="#sources">列出电压、电流和电阻噪声</a></li><li><a href="#bandwidth">把密度积分到实际带宽</a></li><li><a href="#gain">用噪声增益折算输出</a></li><li><a href="#verify">测量时先固定条件</a></li><li><a href="#sources-title">参考资料</a></li></ul></nav>
+      </div>
+    </article>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><div><strong>硬件手记</strong><p>把测量条件写清楚，把判断留给证据。</p></div><a href="#top">回到顶部 ↑</a></div></footer>
+</body>
+</html>
