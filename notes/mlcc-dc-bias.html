@@ -9,6 +9,7 @@
   <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
   <script src="../assets/site.js" defer></script>
+  <link rel="stylesheet" href="../assets/tech-figures.css">
 </head>
 <body>
   <a class="skip" href="#main">跳到正文</a>
@@ -37,6 +38,16 @@
           <section aria-labelledby="example">
             <h2 id="example">用有效容量重算一次</h2>
             <p>假设某个完整料号在工作偏压下的有效容量为 4 μF，短暂承担 100 mA、持续 2 μs 的净放电电流，理想电容压降 ΔV = I × Δt / C 约为 50 mV。若直接用标称 10 μF 计算，只会得到 20 mV。</p><p>这是一组假设值。实际瞬态还受 ESR、ESL、回路寄生参数以及电源响应影响，需要与实测波形比较。</p>
+            <figure class="tech-figure" id="figure-mlcc-circuit">
+              <div class="tech-figure-scroll" tabindex="0" role="region" aria-label="01 / 短时间内，电容独自补充电荷，窄屏可横向滚动"><img src="../assets/tech-figures/mlcc-circuit.svg" width="720" height="410" alt="01 / 短时间内，电容独自补充电荷。这张图只解释 ΔV = I·Δt / C。4 μF 是假设的有效容量，不代表任何具体 MLCC 在某个偏压下的保证值。" loading="lazy" decoding="async"></div>
+              <figcaption><strong>01 / 短时间内，电容独自补充电荷</strong>这张图只解释 ΔV = I·Δt / C。4 μF 是假设的有效容量，不代表任何具体 MLCC 在某个偏压下的保证值。<span class="figure-meta">依据：Murata SimSurfing；正文假设放电算例。 自绘教学示意，非实测。</span><a class="figure-open" href="../assets/tech-figures/mlcc-circuit.svg" target="_blank" rel="noopener">放大查看 ↗</a></figcaption>
+            </figure>
+            <figure class="tech-figure" id="figure-mlcc-wave">
+              <div class="tech-figure-scroll" tabindex="0" role="region" aria-label="02 / 10 μF 与 4 μF 的电压下降量，窄屏可横向滚动"><img src="../assets/tech-figures/mlcc-wave.svg" width="720" height="430" alt="02 / 10 μF 与 4 μF 的电压下降量。同样放电 2 μs，10 μF 对应 20 mV 的压降，4 μF 对应 50 mV。两条直线只适用于本图的恒流、理想电容假设。" loading="lazy" decoding="async"></div>
+              <figcaption><strong>02 / 10 μF 与 4 μF 的电压下降量</strong>同样放电 2 μs，10 μF 对应 20 mV 的压降，4 μF 对应 50 mV。两条直线只适用于本图的恒流、理想电容假设。<span class="figure-meta">依据：正文 ΔV = I·Δt / C 算例。 自绘教学示意，非实测。</span><a class="figure-open" href="../assets/tech-figures/mlcc-wave.svg" target="_blank" rel="noopener">放大查看 ↗</a></figcaption>
+            </figure>
+
+
           </section>
           <section aria-labelledby="choice">
             <h2 id="choice">耐压升高后仍要回到料号</h2>

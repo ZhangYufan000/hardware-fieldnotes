@@ -9,6 +9,7 @@
   <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
   <script src="../assets/site.js" defer></script>
+  <link rel="stylesheet" href="../assets/tech-figures.css">
 </head>
 <body>
   <a class="skip" href="#main">跳到正文</a>
@@ -33,10 +34,20 @@
           <section aria-labelledby="sources">
             <h2 id="sources">列出电压、电流和电阻噪声</h2>
             <p>电流噪声流过源阻抗，会转换成输入电压噪声。源阻抗较高时，这一项可能比电压噪声更显著。电阻热噪声密度为 √(4kTR)，其中 T 用开尔文温度。反馈电阻和偏置网络也会贡献噪声。</p>
+            <figure class="tech-figure" id="figure-opamp-noise-circuit">
+              <div class="tech-figure-scroll" tabindex="0" role="region" aria-label="01 / 信号源、反馈网络和噪声增益，窄屏可横向滚动"><img src="../assets/tech-figures/opamp-noise-circuit.svg" width="720" height="520" alt="01 / 信号源、反馈网络和噪声增益。源电阻把输入电流噪声转换为电压，电阻自身也产生热噪声。非反相电阻网络的噪声增益为 1 + RF/RG。" loading="lazy" decoding="async"></div>
+              <figcaption><strong>01 / 信号源、反馈网络和噪声增益</strong>源电阻把输入电流噪声转换为电压，电阻自身也产生热噪声。非反相电阻网络的噪声增益为 1 + RF/RG。<span class="figure-meta">依据：ADI MT-047；MT-049，噪声增益。 自绘教学示意，非实测。</span><a class="figure-open" href="../assets/tech-figures/opamp-noise-circuit.svg" target="_blank" rel="noopener">放大查看 ↗</a></figcaption>
+            </figure>
+
           </section>
           <section aria-labelledby="bandwidth">
             <h2 id="bandwidth">把密度积分到实际带宽</h2>
             <p>对白噪声密度近似恒定、增益近似恒定的一段频带，可用 e<sub>RMS</sub> ≈ e<sub>n</sub> × √BW<sub>EN</sub>。假设电压噪声密度为 5 nV/√Hz、等效噪声带宽为 100 kHz，输入等效噪声约 1.58 μV RMS。</p><p>一阶低通的等效噪声带宽约为 1.57 倍截止频率。低频 1/f 噪声和频率相关噪声增益需要另外积分，不能把所有曲线都视为水平直线。</p>
+            <figure class="tech-figure" id="figure-opamp-noise-wave">
+              <div class="tech-figure-scroll" tabindex="0" role="region" aria-label="02 / 低频有 1/f，宽带有白噪声底，窄屏可横向滚动"><img src="../assets/tech-figures/opamp-noise-wave.svg" width="720" height="450" alt="02 / 低频有 1/f，宽带有白噪声底。此处使用频谱示意，比随机时域曲线更容易看清 1/f 噪声和白噪声底。底部算式仅积分白噪声分量；总方差应积分谱密度的平方。" loading="lazy" decoding="async"></div>
+              <figcaption><strong>02 / 低频有 1/f，宽带有白噪声底</strong>此处使用频谱示意，比随机时域曲线更容易看清 1/f 噪声和白噪声底。底部算式仅积分白噪声分量；总方差应积分谱密度的平方。<span class="figure-meta">依据：ADI MT-047、MT-048；假设频谱函数与正文白噪声算例。 自绘教学示意，非实测。</span><a class="figure-open" href="../assets/tech-figures/opamp-noise-wave.svg" target="_blank" rel="noopener">放大查看 ↗</a></figcaption>
+            </figure>
+
           </section>
           <section aria-labelledby="gain">
             <h2 id="gain">用噪声增益折算输出</h2>

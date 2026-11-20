@@ -9,6 +9,7 @@
   <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
   <script src="../assets/site.js" defer></script>
+  <link rel="stylesheet" href="../assets/tech-figures.css">
 </head>
 <body>
   <a class="skip" href="#main">跳到正文</a>
@@ -37,6 +38,16 @@
           <section aria-labelledby="model">
             <h2 id="model">用单极点模型看数量级</h2>
             <p>若输入是满量程阶跃、仅考虑一阶 RC，要将残差压到 N 位的半个 LSB 以内，需 t ≥ (N + 1) × ln(2) × RC。16 位约为 11.8 个时间常数。</p><p>例如 R = 1 kΩ、C = 1 nF，时间常数为 1 μs，按此模型需约 11.8 μs。实际链路还有运放大信号建立、ADC 内部开关及电容，因此这个计算只用于发现明显不够的时间余量。</p>
+            <figure class="tech-figure" id="figure-sar-circuit">
+              <div class="tech-figure-scroll" tabindex="0" role="region" aria-label="01 / 外部 RC 与 ADC 内部采样网络，窄屏可横向滚动"><img src="../assets/tech-figures/sar-circuit.svg" width="720" height="470" alt="01 / 外部 RC 与 ADC 内部采样网络。外部 Rext/Cext 与内部采样开关、采样电容分开标注。缓冲器接成单位增益；图中内部开关处于断开状态。" loading="lazy" decoding="async"></div>
+              <figcaption><strong>01 / 外部 RC 与 ADC 内部采样网络</strong>外部 Rext/Cext 与内部采样开关、采样电容分开标注。缓冲器接成单位增益；图中内部开关处于断开状态。<span class="figure-meta">依据：ADI《Front-End Amplifier and RC Filter Design for a Precision SAR ADC》，RC Filter。 自绘教学示意，非实测。</span><a class="figure-open" href="../assets/tech-figures/sar-circuit.svg" target="_blank" rel="noopener">放大查看 ↗</a></figcaption>
+            </figure>
+            <figure class="tech-figure" id="figure-sar-wave">
+              <div class="tech-figure-scroll" tabindex="0" role="region" aria-label="02 / 满幅阶跃后，残差还剩多少？，窄屏可横向滚动"><img src="../assets/tech-figures/sar-wave.svg" width="720" height="460" alt="02 / 满幅阶跃后，残差还剩多少？。指数衰减残差使用对数纵轴，半 LSB 门槛对应约 11.8 个时间常数。实际 ADC 还要考虑采样回踢、驱动器输出阻抗及稳定性。" loading="lazy" decoding="async"></div>
+              <figcaption><strong>02 / 满幅阶跃后，残差还剩多少？</strong>指数衰减残差使用对数纵轴，半 LSB 门槛对应约 11.8 个时间常数。实际 ADC 还要考虑采样回踢、驱动器输出阻抗及稳定性。<span class="figure-meta">依据：ADI《Front-End Amplifier and RC Filter Design for a Precision SAR ADC》，RC Filter；正文一阶模型复算。 自绘教学示意，非实测。</span><a class="figure-open" href="../assets/tech-figures/sar-wave.svg" target="_blank" rel="noopener">放大查看 ↗</a></figcaption>
+            </figure>
+
+
           </section>
           <section aria-labelledby="driver">
             <h2 id="driver">滤波器和驱动放大器一起选</h2>

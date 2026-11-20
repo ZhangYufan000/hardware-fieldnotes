@@ -9,6 +9,7 @@
   <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
   <script src="../assets/site.js" defer></script>
+  <link rel="stylesheet" href="../assets/tech-figures.css">
 </head>
 <body>
   <a class="skip" href="#main">跳到正文</a>
@@ -33,10 +34,20 @@
           <section aria-labelledby="conduction">
             <h2 id="conduction">先用有效值算导通损耗</h2>
             <p>P<sub>cond</sub> ≈ I<sub>RMS</sub>² × R<sub>DS(on)</sub>。这里的电流是该 MOSFET 在整个周期内的有效值，包含其导通占比和电感纹波。假设有效值为 3 A、热态导通电阻为 12 mΩ，导通损耗约 0.108 W。</p>
+            <figure class="tech-figure" id="figure-mosfet-circuit">
+              <div class="tech-figure-scroll" tabindex="0" role="region" aria-label="01 / 把电压、电流放在同一只管上，窄屏可横向滚动"><img src="../assets/tech-figures/mosfet-circuit.svg" width="720" height="470" alt="01 / 把电压、电流放在同一只管上。导通期间用热态 RDS(on) 估算损耗；切换期间同时观察 QH 的 vDS 和 iD。图中两只开关不代表同时导通。" loading="lazy" decoding="async"></div>
+              <figcaption><strong>01 / 把电压、电流放在同一只管上</strong>导通期间用热态 RDS(on) 估算损耗；切换期间同时观察 QH 的 vDS 和 iD。图中两只开关不代表同时导通。<span class="figure-meta">依据：TI SLPA009A；TI SLUA618A。 自绘教学示意，非实测。</span><a class="figure-open" href="../assets/tech-figures/mosfet-circuit.svg" target="_blank" rel="noopener">放大查看 ↗</a></figcaption>
+            </figure>
+
           </section>
           <section aria-labelledby="switching">
             <h2 id="switching">再看电压和电流重叠</h2>
             <p>对电压、电流近似线性变化的硬开关，用 P<sub>sw</sub> ≈ ½ × V × I × (t<sub>r</sub> + t<sub>f</sub>) × f<sub>s</sub> 粗估。假设 12 V、3 A、总重叠时间 40 ns、500 kHz，得到约 0.36 W。</p><p>这个简化模型用于看数量级。实际结果还受驱动电流、米勒平台、共源电感、输出电容和反向恢复影响。软开关条件要用相应模型分析。</p>
+            <figure class="tech-figure" id="figure-mosfet-wave">
+              <div class="tech-figure-scroll" tabindex="0" role="region" aria-label="02 / 切换期间，电压与电流会重叠，窄屏可横向滚动"><img src="../assets/tech-figures/mosfet-wave.svg" width="720" height="500" alt="02 / 切换期间，电压与电流会重叠。先画电流建立、再画电压下降，功率为两者乘积。关断也有重叠；正文的线性近似估算还需与器件和实测条件核对。" loading="lazy" decoding="async"></div>
+              <figcaption><strong>02 / 切换期间，电压与电流会重叠</strong>先画电流建立、再画电压下降，功率为两者乘积。关断也有重叠；正文的线性近似估算还需与器件和实测条件核对。<span class="figure-meta">依据：TI SLPA009A，开关损耗；TI SLUA618A，硬开关过程。 自绘教学示意，非实测。</span><a class="figure-open" href="../assets/tech-figures/mosfet-wave.svg" target="_blank" rel="noopener">放大查看 ↗</a></figcaption>
+            </figure>
+
           </section>
           <section aria-labelledby="budget">
             <h2 id="budget">把损耗放到正确的位置</h2>

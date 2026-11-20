@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430" width="720" height="430" role="img" aria-labelledby="kelvin-wave-title kelvin-wave-desc">
+<title id="kelvin-wave-title">02 / 多算 0.5 mΩ，会读出多大误差？</title><desc id="kelvin-wave-desc">5 mΩ 采样电阻；误把两侧共 0.5 mΩ 铜阻也算入。静态传递关系算例 · 非实测；忽略放大器误差、偏置与温漂</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L6,3 L0,6" fill="none" stroke="context-stroke" stroke-width="1.4"/></marker></defs>
+<rect width="720" height="430" fill="#f8fbf9"/>
+<style>text{font-family:Arial,'Microsoft YaHei','PingFang SC',sans-serif;fill:#244a45;font-size:17px}.muted{fill:#526d67}.accent{fill:#126455}.warm{fill:#9b5827}</style>
+<text x="28" y="35" font-size="23" style="font-size:23px;fill:#244a45" text-anchor="start" font-weight="700">02 / 多算 0.5 mΩ，会读出多大误差？</text>
+<text x="28" y="63" font-size="16" style="font-size:16px;fill:#526d67" text-anchor="start">5 mΩ 采样电阻；误把两侧共 0.5 mΩ 铜阻也算入</text>
+<line x1="28" y1="80" x2="692" y2="80" stroke="#d7e4de" stroke-width="1"/>
+<text x="28" y="413" font-size="14" style="font-size:14px;fill:#526d67" text-anchor="start">静态传递关系算例 · 非实测；忽略放大器误差、偏置与温漂</text>
+<line x1="110" y1="325.0" x2="645" y2="325.0" stroke="#d7e4de" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="93" y="330.0" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="end">0</text>
+<line x1="110" y1="256.6666666666667" x2="645" y2="256.6666666666667" stroke="#d7e4de" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="93" y="261.6666666666667" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="end">4</text>
+<line x1="110" y1="188.33333333333334" x2="645" y2="188.33333333333334" stroke="#d7e4de" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="93" y="193.33333333333334" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="end">8</text>
+<line x1="110" y1="120.0" x2="645" y2="120.0" stroke="#d7e4de" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="93" y="125.0" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="end">12</text>
+<line x1="110" y1="325" x2="660" y2="325" stroke="#244a45" stroke-width="2.2" marker-end="url(#arrow)"/>
+<line x1="110" y1="325" x2="110" y2="105" stroke="#244a45" stroke-width="2.2" marker-end="url(#arrow)"/>
+<text x="28" y="102" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="start">读数 / A</text>
+<text x="110.0" y="351" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="middle">0</text>
+<text x="375.0" y="351" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="middle">5</text>
+<text x="640.0" y="351" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="middle">10</text>
+<path d="M110.000,325.000 L640.000,154.167" fill="none" stroke="#126455" stroke-width="3" stroke-linejoin="round"/>
+<path d="M110.000,325.000 L640.000,137.083" fill="none" stroke="#9b5827" stroke-width="3" stroke-linejoin="round"/>
+<text x="277" y="148" font-size="17" style="font-size:17px;fill:#9b5827" text-anchor="start">含铜阻：Iread = 1.10 I</text>
+<text x="390" y="300" font-size="17" style="font-size:17px;fill:#126455" text-anchor="start">理想四线：Iread = I</text>
+<text x="650" y="376" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="end">真实电流 / A</text>
+<text x="110" y="399" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="start">相同真实电流 10 A：理想读数 10 A，误含铜阻时为 11 A。</text>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" width="720" height="470" role="img" aria-labelledby="i2c-circuit-title i2c-circuit-desc">
+<title id="i2c-circuit-title">01 / SDA 被拉低，先找谁还在下拉</title><desc id="i2c-circuit-desc">开漏等效结构：控制器释放，并不意味着总线已经变高。仅画 SDA · 开关表示开漏输出级；未画保护与寄生电容</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L6,3 L0,6" fill="none" stroke="context-stroke" stroke-width="1.4"/></marker></defs>
+<rect width="720" height="470" fill="#f8fbf9"/>
+<style>text{font-family:Arial,'Microsoft YaHei','PingFang SC',sans-serif;fill:#244a45;font-size:17px}.muted{fill:#526d67}.accent{fill:#126455}.warm{fill:#9b5827}</style>
+<text x="28" y="35" font-size="23" style="font-size:23px;fill:#244a45" text-anchor="start" font-weight="700">01 / SDA 被拉低，先找谁还在下拉</text>
+<text x="28" y="63" font-size="16" style="font-size:16px;fill:#526d67" text-anchor="start">开漏等效结构：控制器释放，并不意味着总线已经变高</text>
+<line x1="28" y1="80" x2="692" y2="80" stroke="#d7e4de" stroke-width="1"/>
+<text x="28" y="453" font-size="14" style="font-size:14px;fill:#526d67" text-anchor="start">仅画 SDA · 开关表示开漏输出级；未画保护与寄生电容</text>
+<text x="365" y="112" font-size="17" style="font-size:17px;fill:#244a45" text-anchor="middle">VPU</text>
+<line x1="365" y1="120" x2="365" y2="145.5" stroke="#244a45" stroke-width="2.2"/>
+<rect x="357" y="145.5" width="16" height="44" rx="0" fill="#f8fbf9" stroke="#244a45" stroke-width="1.6"/>
+<line x1="365" y1="189.5" x2="365" y2="215" stroke="#244a45" stroke-width="2.2"/>
+<text x="398" y="170" font-size="17" style="font-size:17px;fill:#244a45" text-anchor="start">RPU</text>
+<line x1="130" y1="215" x2="590" y2="215" stroke="#244a45" stroke-width="2.2"/>
+<circle cx="365" cy="215" r="3.8" fill="#244a45"/>
+<text x="612" y="221" font-size="17" style="font-size:17px;fill:#9b5827" text-anchor="start">SDA = 低</text>
+<line x1="175" y1="215" x2="175" y2="250" stroke="#244a45" stroke-width="2.2"/>
+<circle cx="175" cy="215" r="3.8" fill="#244a45"/>
+<line x1="175" y1="250" x2="175" y2="266" stroke="#244a45" stroke-width="2.2"/>
+<line x1="175" y1="304" x2="175" y2="320" stroke="#244a45" stroke-width="2.2"/>
+<circle cx="175" cy="266" r="3.8" fill="#244a45"/>
+<circle cx="175" cy="304" r="3.8" fill="#244a45"/>
+<line x1="175" y1="304" x2="196" y2="266" stroke="#244a45" stroke-width="2.2"/>
+<line x1="175" y1="320" x2="175" y2="343" stroke="#244a45" stroke-width="2.2"/>
+<line x1="175" y1="343" x2="175" y2="352" stroke="#244a45" stroke-width="2.2"/>
+<line x1="163.0" y1="352" x2="187.0" y2="352" stroke="#244a45" stroke-width="2.2"/>
+<line x1="167.0" y1="358" x2="183.0" y2="358" stroke="#244a45" stroke-width="2.2"/>
+<line x1="171.0" y1="364" x2="179.0" y2="364" stroke="#244a45" stroke-width="2.2"/>
+<text x="175" y="400" font-size="18" style="font-size:18px;fill:#126455" text-anchor="middle">控制器：已释放</text>
+<line x1="550" y1="215" x2="550" y2="250" stroke="#244a45" stroke-width="2.2"/>
+<circle cx="550" cy="215" r="3.8" fill="#244a45"/>
+<line x1="550" y1="250" x2="550" y2="266" stroke="#9b5827" stroke-width="2.2"/>
+<line x1="550" y1="304" x2="550" y2="320" stroke="#9b5827" stroke-width="2.2"/>
+<circle cx="550" cy="266" r="3.8" fill="#9b5827"/>
+<circle cx="550" cy="304" r="3.8" fill="#9b5827"/>
+<line x1="550" y1="304" x2="550" y2="266" stroke="#9b5827" stroke-width="2.2"/>
+<line x1="550" y1="320" x2="550" y2="343" stroke="#244a45" stroke-width="2.2"/>
+<line x1="550" y1="343" x2="550" y2="352" stroke="#244a45" stroke-width="2.2"/>
+<line x1="538.0" y1="352" x2="562.0" y2="352" stroke="#244a45" stroke-width="2.2"/>
+<line x1="542.0" y1="358" x2="558.0" y2="358" stroke="#244a45" stroke-width="2.2"/>
+<line x1="546.0" y1="364" x2="554.0" y2="364" stroke="#244a45" stroke-width="2.2"/>
+<text x="550" y="400" font-size="18" style="font-size:18px;fill:#9b5827" text-anchor="middle">目标器件：仍下拉</text>
+<text x="365" y="439" font-size="17" style="font-size:17px;fill:#244a45" text-anchor="middle">输出“高”意味着释放，由上拉电阻恢复高电平。</text>
+</svg>

@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 650" width="720" height="650" role="img" aria-labelledby="buck-hot-loop-circuit-title buck-hot-loop-circuit-desc">
+<title id="buck-hot-loop-circuit-title">01 / 两个状态相减，找到换流回路</title><desc id="buck-hot-loop-circuit-desc">绿色箭头为当下电流路径；虚线边界为换流差分回路。等效开关图 · 未画死区与体二极管；虚线不是同时导通电流</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L6,3 L0,6" fill="none" stroke="context-stroke" stroke-width="1.4"/></marker></defs>
+<rect width="720" height="650" fill="#f8fbf9"/>
+<style>text{font-family:Arial,'Microsoft YaHei','PingFang SC',sans-serif;fill:#244a45;font-size:17px}.muted{fill:#526d67}.accent{fill:#126455}.warm{fill:#9b5827}</style>
+<text x="28" y="35" font-size="23" style="font-size:23px;fill:#244a45" text-anchor="start" font-weight="700">01 / 两个状态相减，找到换流回路</text>
+<text x="28" y="63" font-size="16" style="font-size:16px;fill:#526d67" text-anchor="start">绿色箭头为当下电流路径；虚线边界为换流差分回路</text>
+<line x1="28" y1="80" x2="692" y2="80" stroke="#d7e4de" stroke-width="1"/>
+<text x="28" y="633" font-size="14" style="font-size:14px;fill:#526d67" text-anchor="start">等效开关图 · 未画死区与体二极管；虚线不是同时导通电流</text>
+<text x="35" y="108" font-size="18" style="font-size:18px;fill:#244a45" text-anchor="start" font-weight="700">A / QH 导通，QL 关断</text>
+<rect x="88" y="114" width="205" height="216" rx="7" fill="none" stroke="#9b5827" stroke-width="1.6" stroke-dasharray="6 5"/>
+<line x1="112" y1="126" x2="112" y2="215.0" stroke="#244a45" stroke-width="2.2"/>
+<line x1="95" y1="215.0" x2="129" y2="215.0" stroke="#244a45" stroke-width="2.2"/>
+<line x1="95" y1="227.0" x2="129" y2="227.0" stroke="#244a45" stroke-width="2.2"/>
+<line x1="112" y1="227.0" x2="112" y2="316" stroke="#244a45" stroke-width="2.2"/>
+<text x="71" y="226" font-size="14" style="font-size:14px;fill:#244a45" text-anchor="end">CIN</text>
+<line x1="112" y1="126" x2="260" y2="126" stroke="#244a45" stroke-width="2.2"/>
+<line x1="260" y1="126" x2="260" y2="142" stroke="#244a45" stroke-width="2.2"/>
+<line x1="260" y1="180" x2="260" y2="196" stroke="#244a45" stroke-width="2.2"/>
+<circle cx="260" cy="142" r="3.8" fill="#244a45"/>
+<circle cx="260" cy="180" r="3.8" fill="#244a45"/>
+<line x1="260" y1="180" x2="260" y2="142" stroke="#244a45" stroke-width="2.2"/>
+<line x1="260" y1="196" x2="260" y2="220" stroke="#244a45" stroke-width="2.2"/>
+<line x1="260" y1="235" x2="260" y2="251" stroke="#244a45" stroke-width="2.2"/>
+<line x1="260" y1="289" x2="260" y2="305" stroke="#244a45" stroke-width="2.2"/>
+<circle cx="260" cy="251" r="3.8" fill="#244a45"/>
+<circle cx="260" cy="289" r="3.8" fill="#244a45"/>
+<line x1="260" y1="289" x2="281" y2="251" stroke="#244a45" stroke-width="2.2"/>
+<line x1="260" y1="305" x2="260" y2="316" stroke="#244a45" stroke-width="2.2"/>
+<text x="286" y="168" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="start">QH</text>
+<text x="286" y="277" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="start">QL</text>
+<line x1="260" y1="220" x2="398" y2="220" stroke="#244a45" stroke-width="2.2"/>
+<line x1="398" y1="220" x2="408" y2="220" stroke="#244a45" stroke-width="2.2"/>
+<path d="M408,220 c0,-23 18.5,-23 18.5,0 c0,-23 18.5,-23 18.5,0 c0,-23 18.5,-23 18.5,0 c0,-23 18.5,-23 18.5,0" fill="none" stroke="#244a45" stroke-width="2.2"/>
+<line x1="482" y1="220" x2="492" y2="220" stroke="#244a45" stroke-width="2.2"/>
+<text x="445" y="196" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="middle">L</text>
+<line x1="492" y1="220" x2="600" y2="220" stroke="#244a45" stroke-width="2.2"/>
+<line x1="600" y1="220" x2="600" y2="246.0" stroke="#244a45" stroke-width="2.2"/>
+<rect x="592" y="246.0" width="16" height="44" rx="0" fill="#f8fbf9" stroke="#244a45" stroke-width="1.6"/>
+<line x1="600" y1="290.0" x2="600" y2="316" stroke="#244a45" stroke-width="2.2"/>
+<text x="630" y="276" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="start">输出</text>
+<line x1="112" y1="316" x2="600" y2="316" stroke="#244a45" stroke-width="2.2"/>
+<circle cx="260" cy="220" r="3.8" fill="#244a45"/>
+<circle cx="260" cy="316" r="3.8" fill="#244a45"/>
+<path d="M145.000,144.000 L237.000,144.000 L237.000,203.000 L365.000,203.000" fill="none" stroke="#126455" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M570.000,242.000 L570.000,299.000 L149.000,299.000" fill="none" stroke="#126455" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="35" y="368" font-size="18" style="font-size:18px;fill:#244a45" text-anchor="start" font-weight="700">B / QH 关断，QL 导通</text>
+<rect x="88" y="374" width="205" height="216" rx="7" fill="none" stroke="#9b5827" stroke-width="1.6" stroke-dasharray="6 5"/>
+<line x1="112" y1="386" x2="112" y2="475.0" stroke="#244a45" stroke-width="2.2"/>
+<line x1="95" y1="475.0" x2="129" y2="475.0" stroke="#244a45" stroke-width="2.2"/>
+<line x1="95" y1="487.0" x2="129" y2="487.0" stroke="#244a45" stroke-width="2.2"/>
+<line x1="112" y1="487.0" x2="112" y2="576" stroke="#244a45" stroke-width="2.2"/>
+<text x="71" y="486" font-size="14" style="font-size:14px;fill:#244a45" text-anchor="end">CIN</text>
+<line x1="112" y1="386" x2="260" y2="386" stroke="#244a45" stroke-width="2.2"/>
+<line x1="260" y1="386" x2="260" y2="402" stroke="#244a45" stroke-width="2.2"/>
+<line x1="260" y1="440" x2="260" y2="456" stroke="#244a45" stroke-width="2.2"/>
+<circle cx="260" cy="402" r="3.8" fill="#244a45"/>
+<circle cx="260" cy="440" r="3.8" fill="#244a45"/>
+<line x1="260" y1="440" x2="281" y2="402" stroke="#244a45" stroke-width="2.2"/>
+<line x1="260" y1="456" x2="260" y2="480" stroke="#244a45" stroke-width="2.2"/>
+<line x1="260" y1="495" x2="260" y2="511" stroke="#244a45" stroke-width="2.2"/>
+<line x1="260" y1="549" x2="260" y2="565" stroke="#244a45" stroke-width="2.2"/>
+<circle cx="260" cy="511" r="3.8" fill="#244a45"/>
+<circle cx="260" cy="549" r="3.8" fill="#244a45"/>
+<line x1="260" y1="549" x2="260" y2="511" stroke="#244a45" stroke-width="2.2"/>
+<line x1="260" y1="565" x2="260" y2="576" stroke="#244a45" stroke-width="2.2"/>
+<text x="286" y="428" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="start">QH</text>
+<text x="286" y="537" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="start">QL</text>
+<line x1="260" y1="480" x2="398" y2="480" stroke="#244a45" stroke-width="2.2"/>
+<line x1="398" y1="480" x2="408" y2="480" stroke="#244a45" stroke-width="2.2"/>
+<path d="M408,480 c0,-23 18.5,-23 18.5,0 c0,-23 18.5,-23 18.5,0 c0,-23 18.5,-23 18.5,0 c0,-23 18.5,-23 18.5,0" fill="none" stroke="#244a45" stroke-width="2.2"/>
+<line x1="482" y1="480" x2="492" y2="480" stroke="#244a45" stroke-width="2.2"/>
+<text x="445" y="456" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="middle">L</text>
+<line x1="492" y1="480" x2="600" y2="480" stroke="#244a45" stroke-width="2.2"/>
+<line x1="600" y1="480" x2="600" y2="506.0" stroke="#244a45" stroke-width="2.2"/>
+<rect x="592" y="506.0" width="16" height="44" rx="0" fill="#f8fbf9" stroke="#244a45" stroke-width="1.6"/>
+<line x1="600" y1="550.0" x2="600" y2="576" stroke="#244a45" stroke-width="2.2"/>
+<text x="630" y="536" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="start">输出</text>
+<line x1="112" y1="576" x2="600" y2="576" stroke="#244a45" stroke-width="2.2"/>
+<circle cx="260" cy="480" r="3.8" fill="#244a45"/>
+<circle cx="260" cy="576" r="3.8" fill="#244a45"/>
+<path d="M235.000,560.000 L235.000,463.000 L365.000,463.000" fill="none" stroke="#126455" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M570.000,502.000 L570.000,559.000 L314.000,559.000" fill="none" stroke="#126455" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="360" y="618" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="middle">两种状态都流经电感 / 负载；CIN–QH–QL 支路发生快速换流。</text>
+</svg>

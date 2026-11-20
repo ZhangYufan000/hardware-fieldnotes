@@ -9,6 +9,7 @@
   <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
   <script src="../assets/site.js" defer></script>
+  <link rel="stylesheet" href="../assets/tech-figures.css">
 </head>
 <body>
   <a class="skip" href="#main">跳到正文</a>
@@ -33,10 +34,20 @@
           <section aria-labelledby="kelvin">
             <h2 id="kelvin">取样线从指定端点引出</h2>
             <p>开尔文连接用独立的电压取样线回到放大器输入，大电流经另一条路径流过电阻。四端分流器按厂商规定的 force 与 sense 焊盘连接。两端器件则要按其推荐焊盘和取样位置设计。</p>
+            <figure class="tech-figure" id="figure-kelvin-circuit">
+              <div class="tech-figure-scroll" tabindex="0" role="region" aria-label="01 / 大电流走主路，测量线取在两端，窄屏可横向滚动"><img src="../assets/tech-figures/kelvin-circuit.svg" width="720" height="470" alt="01 / 大电流走主路，测量线取在两端。两根感测线各自从采样电阻端点引出。外侧铜阻承载主电流，但不应包含在感测电压里；实际端点需按封装推荐布局选择。" loading="lazy" decoding="async"></div>
+              <figcaption><strong>01 / 大电流走主路，测量线取在两端</strong>两根感测线各自从采样电阻端点引出。外侧铜阻承载主电流，但不应包含在感测电压里；实际端点需按封装推荐布局选择。<span class="figure-meta">依据：TI INA240 数据手册，§11.1.1 Connection to the Current-Sense Resistor。 自绘教学示意，非实测。</span><a class="figure-open" href="../assets/tech-figures/kelvin-circuit.svg" target="_blank" rel="noopener">放大查看 ↗</a></figcaption>
+            </figure>
+
           </section>
           <section aria-labelledby="example">
             <h2 id="example">估算一段多余铜阻的影响</h2>
             <p>假设分流电阻为 5 mΩ，两侧取样合计又包含了 0.5 mΩ 的载流寄生电阻，软件仍按 5 mΩ 换算，则仅这一项就会造成约 10% 的比例误差。此处忽略温度及放大器误差，用来说明取样位置的影响。</p>
+            <figure class="tech-figure" id="figure-kelvin-wave">
+              <div class="tech-figure-scroll" tabindex="0" role="region" aria-label="02 / 多算 0.5 mΩ，会读出多大误差？，窄屏可横向滚动"><img src="../assets/tech-figures/kelvin-wave.svg" width="720" height="430" alt="02 / 多算 0.5 mΩ，会读出多大误差？。铜阻相对采样电阻为 0.5/5 = 10%，因此形成随电流成比例的增益误差。此处画静态关系，更容易直接比较读数。" loading="lazy" decoding="async"></div>
+              <figcaption><strong>02 / 多算 0.5 mΩ，会读出多大误差？</strong>铜阻相对采样电阻为 0.5/5 = 10%，因此形成随电流成比例的增益误差。此处画静态关系，更容易直接比较读数。<span class="figure-meta">依据：TI INA240，§11.1.1；正文假设铜阻算例。 自绘教学示意，非实测。</span><a class="figure-open" href="../assets/tech-figures/kelvin-wave.svg" target="_blank" rel="noopener">放大查看 ↗</a></figcaption>
+            </figure>
+
           </section>
           <section aria-labelledby="routing">
             <h2 id="routing">输入和输出都要有参考</h2>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" width="720" height="470" role="img" aria-labelledby="kelvin-circuit-title kelvin-circuit-desc">
+<title id="kelvin-circuit-title">01 / 大电流走主路，测量线取在两端</title><desc id="kelvin-circuit-desc">绿色感测线接到采样电阻端点，避开主电流铜阻。自绘四线取样示意 · 非完整放大器电路；忽略输入偏置电流</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L6,3 L0,6" fill="none" stroke="context-stroke" stroke-width="1.4"/></marker></defs>
+<rect width="720" height="470" fill="#f8fbf9"/>
+<style>text{font-family:Arial,'Microsoft YaHei','PingFang SC',sans-serif;fill:#244a45;font-size:17px}.muted{fill:#526d67}.accent{fill:#126455}.warm{fill:#9b5827}</style>
+<text x="28" y="35" font-size="23" style="font-size:23px;fill:#244a45" text-anchor="start" font-weight="700">01 / 大电流走主路，测量线取在两端</text>
+<text x="28" y="63" font-size="16" style="font-size:16px;fill:#526d67" text-anchor="start">绿色感测线接到采样电阻端点，避开主电流铜阻</text>
+<line x1="28" y1="80" x2="692" y2="80" stroke="#d7e4de" stroke-width="1"/>
+<text x="28" y="453" font-size="14" style="font-size:14px;fill:#526d67" text-anchor="start">自绘四线取样示意 · 非完整放大器电路；忽略输入偏置电流</text>
+<path d="M40.000,160.000 L110.000,160.000" fill="none" stroke="#244a45" stroke-width="4" stroke-linejoin="round"/>
+<line x1="110" y1="160" x2="158.0" y2="160" stroke="#244a45" stroke-width="2.2"/>
+<rect x="158.0" y="152" width="44" height="16" rx="0" fill="#f8fbf9" stroke="#244a45" stroke-width="1.6"/>
+<line x1="202.0" y1="160" x2="250" y2="160" stroke="#244a45" stroke-width="2.2"/>
+<line x1="250" y1="160" x2="285" y2="160" stroke="#244a45" stroke-width="4"/>
+<line x1="285" y1="160" x2="338.0" y2="160" stroke="#9b5827" stroke-width="2.2"/>
+<rect x="338.0" y="152" width="44" height="16" rx="0" fill="#f8fbf9" stroke="#9b5827" stroke-width="1.6"/>
+<line x1="382.0" y1="160" x2="435" y2="160" stroke="#9b5827" stroke-width="2.2"/>
+<line x1="435" y1="160" x2="470" y2="160" stroke="#244a45" stroke-width="4"/>
+<line x1="470" y1="160" x2="518.0" y2="160" stroke="#244a45" stroke-width="2.2"/>
+<rect x="518.0" y="152" width="44" height="16" rx="0" fill="#f8fbf9" stroke="#244a45" stroke-width="1.6"/>
+<line x1="562.0" y1="160" x2="610" y2="160" stroke="#244a45" stroke-width="2.2"/>
+<line x1="610" y1="160" x2="680" y2="160" stroke="#244a45" stroke-width="4"/>
+<circle cx="285" cy="160" r="3.8" fill="#244a45"/>
+<circle cx="435" cy="160" r="3.8" fill="#244a45"/>
+<text x="180" y="120" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="middle">铜阻 0.25 mΩ</text>
+<text x="360" y="120" font-size="17" style="font-size:17px;fill:#9b5827" text-anchor="middle">RSHUNT = 5 mΩ</text>
+<text x="540" y="120" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="middle">铜阻 0.25 mΩ</text>
+<line x1="50" y1="205" x2="240" y2="205" stroke="#9b5827" stroke-width="2.2" marker-end="url(#arrow)"/>
+<text x="145" y="235" font-size="16" style="font-size:16px;fill:#9b5827" text-anchor="middle">主电流 I</text>
+<rect x="305" y="285" width="240" height="105" rx="7" fill="#edf4ef" stroke="#126455" stroke-width="1.6"/>
+<text x="427" y="325" font-size="17" style="font-size:17px;fill:#244a45" text-anchor="middle">差分电流检测放大器</text>
+<text x="427" y="357" font-size="16" style="font-size:16px;fill:#126455" text-anchor="middle">只测 RSHUNT 两端电压</text>
+<path d="M285.000,160.000 L285.000,307.000 L305.000,307.000" fill="none" stroke="#126455" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M435.000,160.000 L435.000,250.000 L570.000,250.000 L570.000,367.000 L545.000,367.000" fill="none" stroke="#126455" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="318" y="311" font-size="19" style="font-size:19px;fill:#126455" text-anchor="start">+</text>
+<text x="523" y="373" font-size="19" style="font-size:19px;fill:#126455" text-anchor="start">−</text>
+<text x="73" y="419" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="start">铜阻值为假设算例；实际取样点按器件焊盘与推荐布局确定。</text>
+</svg>

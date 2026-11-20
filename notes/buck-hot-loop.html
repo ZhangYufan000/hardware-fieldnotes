@@ -9,6 +9,7 @@
   <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
   <script src="../assets/site.js" defer></script>
+  <link rel="stylesheet" href="../assets/tech-figures.css">
 </head>
 <body>
   <a class="skip" href="#main">跳到正文</a>
@@ -33,10 +34,20 @@
           <section aria-labelledby="paths">
             <h2 id="paths">把两个开关状态画出来</h2>
             <p>高侧导通时，电流从输入侧经高侧管流向电感与负载。高侧关断、低侧导通时，电感电流经低侧管续流。比较两种状态，可找出输入电容、高侧管、低侧管围成的快速换流区域。</p>
+            <figure class="tech-figure" id="figure-buck-hot-loop-circuit">
+              <div class="tech-figure-scroll" tabindex="0" role="region" aria-label="01 / 两个状态相减，找到换流回路，窄屏可横向滚动"><img src="../assets/tech-figures/buck-hot-loop-circuit.svg" width="720" height="650" alt="01 / 两个状态相减，找到换流回路。分开画两种正常导通状态。包围 CIN、QH、QL 的虚线表示换流差分回路；它不是 QH 和 QL 同时导通的直通电流。" loading="lazy" decoding="async"></div>
+              <figcaption><strong>01 / 两个状态相减，找到换流回路</strong>分开画两种正常导通状态。包围 CIN、QH、QL 的虚线表示换流差分回路；它不是 QH 和 QL 同时导通的直通电流。<span class="figure-meta">依据：TI SNVA638A，输入高 di/dt 回路布局。 自绘教学示意，非实测。</span><a class="figure-open" href="../assets/tech-figures/buck-hot-loop-circuit.svg" target="_blank" rel="noopener">放大查看 ↗</a></figcaption>
+            </figure>
+
           </section>
           <section aria-labelledby="placement">
             <h2 id="placement">先摆高频输入电容</h2>
             <p>让承担高频电流的输入旁路电容直接贴近相关 VIN 和功率地连接，缩小完整回路面积。需要换层时核对过孔、参考层和回流路径。体积更大的储能电容按输入阻抗与瞬态需求布置。</p>
+            <figure class="tech-figure" id="figure-buck-hot-loop-wave">
+              <div class="tech-figure-scroll" tabindex="0" role="region" aria-label="02 / 电感连续，输入开关支路呈脉冲，窄屏可横向滚动"><img src="../assets/tech-figures/buck-hot-loop-wave.svg" width="720" height="450" alt="02 / 电感连续，输入开关支路呈脉冲。上图的电感电流在整个周期连续；下图的高侧支路电流只在 QH 导通时存在。快速变化的支路应靠近 CIN，以缩小换流回路。" loading="lazy" decoding="async"></div>
+              <figcaption><strong>02 / 电感连续，输入开关支路呈脉冲</strong>上图的电感电流在整个周期连续；下图的高侧支路电流只在 QH 导通时存在。快速变化的支路应靠近 CIN，以缩小换流回路。<span class="figure-meta">依据：TI SNVA638A；理想 CCM 支路电流关系。 自绘教学示意，非实测。</span><a class="figure-open" href="../assets/tech-figures/buck-hot-loop-wave.svg" target="_blank" rel="noopener">放大查看 ↗</a></figcaption>
+            </figure>
+
           </section>
           <section aria-labelledby="nodes">
             <h2 id="nodes">开关节点和反馈各查一次</h2>

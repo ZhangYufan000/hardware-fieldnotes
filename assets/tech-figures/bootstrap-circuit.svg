@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 490" width="720" height="490" role="img" aria-labelledby="bootstrap-circuit-title bootstrap-circuit-desc">
+<title id="bootstrap-circuit-title">01 / 自举电容跟着 SW 一起浮动</title><desc id="bootstrap-circuit-desc">看清 CBOOT 两端：BOOT 与 SW，而不是 BOOT 与地。依据：TI SLUA887A §2 · 等效结构；驱动细节与寄生参数省略</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L6,3 L0,6" fill="none" stroke="context-stroke" stroke-width="1.4"/></marker></defs>
+<rect width="720" height="490" fill="#f8fbf9"/>
+<style>text{font-family:Arial,'Microsoft YaHei','PingFang SC',sans-serif;fill:#244a45;font-size:17px}.muted{fill:#526d67}.accent{fill:#126455}.warm{fill:#9b5827}</style>
+<text x="28" y="35" font-size="23" style="font-size:23px;fill:#244a45" text-anchor="start" font-weight="700">01 / 自举电容跟着 SW 一起浮动</text>
+<text x="28" y="63" font-size="16" style="font-size:16px;fill:#526d67" text-anchor="start">看清 CBOOT 两端：BOOT 与 SW，而不是 BOOT 与地</text>
+<line x1="28" y1="80" x2="692" y2="80" stroke="#d7e4de" stroke-width="1"/>
+<text x="28" y="473" font-size="14" style="font-size:14px;fill:#526d67" text-anchor="start">依据：TI SLUA887A §2 · 等效结构；驱动细节与寄生参数省略</text>
+<text x="38" y="142" font-size="17" style="font-size:17px;fill:#244a45" text-anchor="start">VDD</text>
+<line x1="95" y1="138" x2="135" y2="138" stroke="#244a45" stroke-width="2.2"/>
+<path d="M135,126 L135,150 L157,138 Z M159,125 L159,151" fill="none" stroke="#244a45" stroke-width="2.2"/>
+<line x1="159" y1="138" x2="300" y2="138" stroke="#244a45" stroke-width="2.2"/>
+<text x="178" y="120" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="start">DBOOT</text>
+<circle cx="220" cy="138" r="3.8" fill="#244a45"/>
+<line x1="220" y1="138" x2="220" y2="208.0" stroke="#244a45" stroke-width="2.2"/>
+<line x1="203" y1="208.0" x2="237" y2="208.0" stroke="#244a45" stroke-width="2.2"/>
+<line x1="203" y1="220.0" x2="237" y2="220.0" stroke="#244a45" stroke-width="2.2"/>
+<line x1="220" y1="220.0" x2="220" y2="290" stroke="#244a45" stroke-width="2.2"/>
+<text x="185" y="219" font-size="16" style="font-size:16px;fill:#126455" text-anchor="end">CBOOT</text>
+<text x="232" y="166" font-size="15" style="font-size:15px;fill:#126455" text-anchor="start">BOOT</text>
+<rect x="300" y="118" width="125" height="115" rx="7" fill="#edf4ef" stroke="#126455" stroke-width="1.6"/>
+<text x="362" y="163" font-size="17" style="font-size:17px;fill:#244a45" text-anchor="middle">浮动驱动</text>
+<text x="362" y="194" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="middle">参考 SW</text>
+<path d="M362.000,233.000 L362.000,290.000 L220.000,290.000" fill="none" stroke="#244a45" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M220.000,290.000 L535.000,290.000" fill="none" stroke="#244a45" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="362" cy="290" r="3.8" fill="#244a45"/>
+<circle cx="535" cy="290" r="3.8" fill="#244a45"/>
+<text x="563" y="296" font-size="17" style="font-size:17px;fill:#126455" text-anchor="start">SW</text>
+<line x1="535" y1="111" x2="535" y2="150" stroke="#244a45" stroke-width="2.2"/>
+<text x="535" y="105" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="middle">VBUS</text>
+<line x1="535" y1="150" x2="535" y2="166" stroke="#244a45" stroke-width="2.2"/>
+<line x1="535" y1="204" x2="535" y2="220" stroke="#244a45" stroke-width="2.2"/>
+<circle cx="535" cy="166" r="3.8" fill="#244a45"/>
+<circle cx="535" cy="204" r="3.8" fill="#244a45"/>
+<line x1="535" y1="204" x2="556" y2="166" stroke="#244a45" stroke-width="2.2"/>
+<text x="575" y="194" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="start">QH</text>
+<line x1="535" y1="220" x2="535" y2="290" stroke="#244a45" stroke-width="2.2"/>
+<line x1="535" y1="290" x2="535" y2="315" stroke="#244a45" stroke-width="2.2"/>
+<line x1="535" y1="315" x2="535" y2="331" stroke="#244a45" stroke-width="2.2"/>
+<line x1="535" y1="369" x2="535" y2="385" stroke="#244a45" stroke-width="2.2"/>
+<circle cx="535" cy="331" r="3.8" fill="#244a45"/>
+<circle cx="535" cy="369" r="3.8" fill="#244a45"/>
+<line x1="535" y1="369" x2="535" y2="331" stroke="#244a45" stroke-width="2.2"/>
+<text x="575" y="358" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="start">QL</text>
+<line x1="535" y1="385" x2="535" y2="405" stroke="#244a45" stroke-width="2.2"/>
+<line x1="535" y1="405" x2="535" y2="414" stroke="#244a45" stroke-width="2.2"/>
+<line x1="523.0" y1="414" x2="547.0" y2="414" stroke="#244a45" stroke-width="2.2"/>
+<line x1="527.0" y1="420" x2="543.0" y2="420" stroke="#244a45" stroke-width="2.2"/>
+<line x1="531.0" y1="426" x2="539.0" y2="426" stroke="#244a45" stroke-width="2.2"/>
+<path d="M425.000,177.000 L493.000,177.000" fill="none" stroke="#126455" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<text x="430" y="157" font-size="14" style="font-size:14px;fill:#526d67" text-anchor="start">控制</text>
+<text x="36" y="363" font-size="17" style="font-size:17px;fill:#244a45" text-anchor="start" font-weight="700">图示状态：QL 导通、SW 低</text>
+<text x="36" y="393" font-size="17" style="font-size:17px;fill:#126455" text-anchor="start">VDD → DBOOT → CBOOT 补电</text>
+<text x="36" y="435" font-size="18" style="font-size:18px;fill:#9b5827" text-anchor="start">高侧打开后，检查 VBS = VBOOT − VSW</text>
+</svg>

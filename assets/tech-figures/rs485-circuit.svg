@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 450" width="720" height="450" role="img" aria-labelledby="rs485-circuit-title rs485-circuit-desc">
+<title id="rs485-circuit-title">01 / 终端电阻跨在干线的两个物理端</title><desc id="rs485-circuit-desc">A、B 是一对总线导线；每个收发器用短支线接入。拓扑示意 · 未画参考线、供电、偏置与保护；不代表可以省略这些设计</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L6,3 L0,6" fill="none" stroke="context-stroke" stroke-width="1.4"/></marker></defs>
+<rect width="720" height="450" fill="#f8fbf9"/>
+<style>text{font-family:Arial,'Microsoft YaHei','PingFang SC',sans-serif;fill:#244a45;font-size:17px}.muted{fill:#526d67}.accent{fill:#126455}.warm{fill:#9b5827}</style>
+<text x="28" y="35" font-size="23" style="font-size:23px;fill:#244a45" text-anchor="start" font-weight="700">01 / 终端电阻跨在干线的两个物理端</text>
+<text x="28" y="63" font-size="16" style="font-size:16px;fill:#526d67" text-anchor="start">A、B 是一对总线导线；每个收发器用短支线接入</text>
+<line x1="28" y1="80" x2="692" y2="80" stroke="#d7e4de" stroke-width="1"/>
+<text x="28" y="433" font-size="14" style="font-size:14px;fill:#526d67" text-anchor="start">拓扑示意 · 未画参考线、供电、偏置与保护；不代表可以省略这些设计</text>
+<line x1="90" y1="140" x2="630" y2="140" stroke="#244a45" stroke-width="2.2"/>
+<line x1="90" y1="330" x2="630" y2="330" stroke="#244a45" stroke-width="2.2"/>
+<line x1="90" y1="140" x2="90" y2="213.0" stroke="#244a45" stroke-width="2.2"/>
+<rect x="82" y="213.0" width="16" height="44" rx="0" fill="#f8fbf9" stroke="#244a45" stroke-width="1.6"/>
+<line x1="90" y1="257.0" x2="90" y2="330" stroke="#244a45" stroke-width="2.2"/>
+<line x1="630" y1="140" x2="630" y2="213.0" stroke="#244a45" stroke-width="2.2"/>
+<rect x="622" y="213.0" width="16" height="44" rx="0" fill="#f8fbf9" stroke="#244a45" stroke-width="1.6"/>
+<line x1="630" y1="257.0" x2="630" y2="330" stroke="#244a45" stroke-width="2.2"/>
+<circle cx="90" cy="140" r="3.8" fill="#244a45"/>
+<circle cx="90" cy="330" r="3.8" fill="#244a45"/>
+<circle cx="630" cy="140" r="3.8" fill="#244a45"/>
+<circle cx="630" cy="330" r="3.8" fill="#244a45"/>
+<text x="90" y="118" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="middle">端点 1</text>
+<text x="630" y="118" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="middle">端点 2</text>
+<text x="42" y="230" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="middle">120 Ω</text>
+<text x="678" y="230" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="middle">120 Ω</text>
+<text x="350" y="124" font-size="17" style="font-size:17px;fill:#244a45" text-anchor="start">A</text>
+<text x="350" y="355" font-size="17" style="font-size:17px;fill:#244a45" text-anchor="start">B</text>
+<rect x="205" y="190" width="95" height="80" rx="7" fill="#edf4ef" stroke="#126455" stroke-width="1.6"/>
+<text x="253" y="235" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="middle">节点 1</text>
+<line x1="225" y1="140" x2="225" y2="190" stroke="#244a45" stroke-width="2.2"/>
+<circle cx="225" cy="140" r="3.8" fill="#244a45"/>
+<line x1="280" y1="270" x2="280" y2="330" stroke="#244a45" stroke-width="2.2"/>
+<circle cx="280" cy="330" r="3.8" fill="#244a45"/>
+<text x="235" y="181" font-size="14" style="font-size:14px;fill:#244a45" text-anchor="start">A</text>
+<text x="265" y="291" font-size="14" style="font-size:14px;fill:#244a45" text-anchor="start">B</text>
+<rect x="425" y="190" width="95" height="80" rx="7" fill="#edf4ef" stroke="#126455" stroke-width="1.6"/>
+<text x="473" y="235" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="middle">节点 2</text>
+<line x1="445" y1="140" x2="445" y2="190" stroke="#244a45" stroke-width="2.2"/>
+<circle cx="445" cy="140" r="3.8" fill="#244a45"/>
+<line x1="500" y1="270" x2="500" y2="330" stroke="#244a45" stroke-width="2.2"/>
+<circle cx="500" cy="330" r="3.8" fill="#244a45"/>
+<text x="455" y="181" font-size="14" style="font-size:14px;fill:#244a45" text-anchor="start">A</text>
+<text x="485" y="291" font-size="14" style="font-size:14px;fill:#244a45" text-anchor="start">B</text>
+<text x="360" y="400" font-size="17" style="font-size:17px;fill:#244a45" text-anchor="middle">120 Ω 是常见例子；阻值应匹配所用电缆的特性阻抗。</text>
+</svg>

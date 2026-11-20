@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" width="720" height="440" role="img" aria-labelledby="buck-inductor-wave-title buck-inductor-wave-desc">
+<title id="buck-inductor-wave-title">02 / 上升短、下降长的电感电流</title><desc id="buck-inductor-wave-desc">24 V → 5 V / 2 A；500 kHz；10 μH；理想 CCM 算例。按文中理想公式计算 · 非实测；不包含损耗、容差及瞬态</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L6,3 L0,6" fill="none" stroke="context-stroke" stroke-width="1.4"/></marker></defs>
+<rect width="720" height="440" fill="#f8fbf9"/>
+<style>text{font-family:Arial,'Microsoft YaHei','PingFang SC',sans-serif;fill:#244a45;font-size:17px}.muted{fill:#526d67}.accent{fill:#126455}.warm{fill:#9b5827}</style>
+<text x="28" y="35" font-size="23" style="font-size:23px;fill:#244a45" text-anchor="start" font-weight="700">02 / 上升短、下降长的电感电流</text>
+<text x="28" y="63" font-size="16" style="font-size:16px;fill:#526d67" text-anchor="start">24 V → 5 V / 2 A；500 kHz；10 μH；理想 CCM 算例</text>
+<line x1="28" y1="80" x2="692" y2="80" stroke="#d7e4de" stroke-width="1"/>
+<text x="28" y="423" font-size="14" style="font-size:14px;fill:#526d67" text-anchor="start">按文中理想公式计算 · 非实测；不包含损耗、容差及瞬态</text>
+<line x1="100" y1="282.5" x2="650" y2="282.5" stroke="#d7e4de" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="83" y="287.5" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="end">1.6</text>
+<line x1="100" y1="217.49999999999997" x2="650" y2="217.49999999999997" stroke="#d7e4de" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="83" y="222.49999999999997" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="end">2.0</text>
+<line x1="100" y1="152.5" x2="650" y2="152.5" stroke="#d7e4de" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="83" y="157.5" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="end">2.4</text>
+<line x1="100" y1="315" x2="660" y2="315" stroke="#244a45" stroke-width="2.2" marker-end="url(#arrow)"/>
+<line x1="100" y1="315" x2="100" y2="108" stroke="#244a45" stroke-width="2.2" marker-end="url(#arrow)"/>
+<text x="36" y="112" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="start">iL / A</text>
+<line x1="100.0" y1="315" x2="100.0" y2="321" stroke="#244a45" stroke-width="1"/>
+<text x="100.0" y="345" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="middle">0</text>
+<line x1="237.5" y1="315" x2="237.5" y2="321" stroke="#244a45" stroke-width="1"/>
+<text x="237.5" y="345" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="middle">1</text>
+<line x1="375.0" y1="315" x2="375.0" y2="321" stroke="#244a45" stroke-width="1"/>
+<text x="375.0" y="345" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="middle">2</text>
+<line x1="512.5" y1="315" x2="512.5" y2="321" stroke="#244a45" stroke-width="1"/>
+<text x="512.5" y="345" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="middle">3</text>
+<line x1="650.0" y1="315" x2="650.0" y2="321" stroke="#244a45" stroke-width="1"/>
+<text x="650.0" y="345" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="middle">4</text>
+<text x="657" y="371" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="end">t / μs</text>
+<path d="M100.000,281.823 L157.292,153.177 L375.000,281.823 L432.292,153.177 L650.000,281.823" fill="none" stroke="#126455" stroke-width="3" stroke-linejoin="round"/>
+<text x="230" y="112" font-size="17" style="font-size:17px;fill:#9b5827" text-anchor="start">Ipk ≈ 2.40 A</text>
+<text x="500" y="252" font-size="16" style="font-size:16px;fill:#526d67" text-anchor="start">平均 2 A</text>
+<text x="100" y="394" font-size="17" style="font-size:17px;fill:#244a45" text-anchor="start">D ≈ 20.8%；ton ≈ 0.417 μs；ΔIL ≈ 0.792 A</text>
+</svg>

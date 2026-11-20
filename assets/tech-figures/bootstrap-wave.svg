@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 410" width="720" height="410" role="img" aria-labelledby="bootstrap-wave-title bootstrap-wave-desc">
+<title id="bootstrap-wave-title">02 / 补电与压降交替发生</title><desc id="bootstrap-wave-desc">纵轴 VBS 为 BOOT 对 SW 的差分电压；时间未按比例。自绘示意 · 非实测；仅解释文中关系</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L6,3 L0,6" fill="none" stroke="context-stroke" stroke-width="1.4"/></marker></defs>
+<rect width="720" height="410" fill="#f8fbf9"/>
+<style>text{font-family:Arial,'Microsoft YaHei','PingFang SC',sans-serif;fill:#244a45;font-size:17px}.muted{fill:#526d67}.accent{fill:#126455}.warm{fill:#9b5827}</style>
+<text x="28" y="35" font-size="23" style="font-size:23px;fill:#244a45" text-anchor="start" font-weight="700">02 / 补电与压降交替发生</text>
+<text x="28" y="63" font-size="16" style="font-size:16px;fill:#526d67" text-anchor="start">纵轴 VBS 为 BOOT 对 SW 的差分电压；时间未按比例</text>
+<line x1="28" y1="80" x2="692" y2="80" stroke="#d7e4de" stroke-width="1"/>
+<text x="28" y="393" font-size="14" style="font-size:14px;fill:#526d67" text-anchor="start">自绘示意 · 非实测；仅解释文中关系</text>
+<rect x="90" y="105" width="145" height="190" rx="7" fill="#e3f0e9" stroke="none" stroke-width="1.6"/>
+<rect x="500" y="105" width="155" height="190" rx="7" fill="#e3f0e9" stroke="none" stroke-width="1.6"/>
+<text x="158" y="128" font-size="16" style="font-size:16px;fill:#126455" text-anchor="middle">SW 低：补电</text>
+<text x="365" y="128" font-size="16" style="font-size:16px;fill:#9b5827" text-anchor="middle">QH 导通：消耗电荷</text>
+<line x1="90" y1="295" x2="660" y2="295" stroke="#244a45" stroke-width="2.2" marker-end="url(#arrow)"/>
+<line x1="90" y1="295" x2="90" y2="145" stroke="#244a45" stroke-width="2.2" marker-end="url(#arrow)"/>
+<text x="49" y="170" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="start">VBS</text>
+<text x="663" y="320" font-size="15" style="font-size:15px;fill:#244a45" text-anchor="end">时间</text>
+<path d="M95.000,240.000 L115.000,198.000 L145.000,177.000 L190.000,172.000 L235.000,172.000 L244.000,190.000 L499.000,225.000 L500.000,226.000 L515.000,194.000 L548.000,176.000 L600.000,172.000 L650.000,172.000" fill="none" stroke="#126455" stroke-width="3" stroke-linejoin="round"/>
+<line x1="285" y1="172" x2="480" y2="172" stroke="#526d67" stroke-width="1" stroke-dasharray="5 4"/>
+<line x1="467" y1="177" x2="467" y2="218" stroke="#9b5827" stroke-width="2.2" marker-end="url(#arrow)"/>
+<text x="295" y="257" font-size="17" style="font-size:17px;fill:#9b5827" text-anchor="start">ΔV = Qtotal / Ceff</text>
+<text x="90" y="352" font-size="18" style="font-size:18px;fill:#244a45" text-anchor="start">假设算例：60 nC / 220 nF ≈ 0.27 V</text>
+<text x="90" y="378" font-size="16" style="font-size:16px;fill:#526d67" text-anchor="start">允许压降还要核对充电电压、UVLO 和所需栅压。</text>
+</svg>

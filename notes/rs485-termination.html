@@ -9,6 +9,7 @@
   <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
   <script src="../assets/site.js" defer></script>
+  <link rel="stylesheet" href="../assets/tech-figures.css">
 </head>
 <body>
   <a class="skip" href="#main">跳到正文</a>
@@ -33,6 +34,16 @@
           <section aria-labelledby="ends">
             <h2 id="ends">先找物理末端</h2>
             <p>节点多不代表每个节点都要装端接。把多块板上的端接跳帽画出来，检查末端位置和支线长度。过多端接会增加驱动负载，长支线则可能引入反射。判断支线影响时要看驱动上升时间与电缆传播延迟。</p>
+            <figure class="tech-figure" id="figure-rs485-circuit">
+              <div class="tech-figure-scroll" tabindex="0" role="region" aria-label="01 / 终端电阻跨在干线的两个物理端，窄屏可横向滚动"><img src="../assets/tech-figures/rs485-circuit.svg" width="720" height="450" alt="01 / 终端电阻跨在干线的两个物理端。电阻跨接 A/B，位于整段干线的两端；不是每个收发器旁都加一只。图中 A/B 名称还需与具体器件定义核对。" loading="lazy" decoding="async"></div>
+              <figcaption><strong>01 / 终端电阻跨在干线的两个物理端</strong>电阻跨接 A/B，位于整段干线的两端；不是每个收发器旁都加一只。图中 A/B 名称还需与具体器件定义核对。<span class="figure-meta">依据：TI SLLA272D，§3 Network Topology、§6 Bus Termination and Stub Length。 自绘教学示意，非实测。</span><a class="figure-open" href="../assets/tech-figures/rs485-circuit.svg" target="_blank" rel="noopener">放大查看 ↗</a></figcaption>
+            </figure>
+            <figure class="tech-figure" id="figure-rs485-wave">
+              <div class="tech-figure-scroll" tabindex="0" role="region" aria-label="02 / 失配时，边沿之后还可能再变化，窄屏可横向滚动"><img src="../assets/tech-figures/rs485-wave.svg" width="720" height="430" alt="02 / 失配时，边沿之后还可能再变化。用两条定性曲线说明终端匹配对边沿后稳定性的影响。振铃形态是教学示意，不代表某条总线在某个阻值下的实测响应。" loading="lazy" decoding="async"></div>
+              <figcaption><strong>02 / 失配时，边沿之后还可能再变化</strong>用两条定性曲线说明终端匹配对边沿后稳定性的影响。振铃形态是教学示意，不代表某条总线在某个阻值下的实测响应。<span class="figure-meta">依据：TI SLLA272D，§6；传输线反射的定性说明。 自绘教学示意，非实测。</span><a class="figure-open" href="../assets/tech-figures/rs485-wave.svg" target="_blank" rel="noopener">放大查看 ↗</a></figcaption>
+            </figure>
+
+
           </section>
           <section aria-labelledby="bias">
             <h2 id="bias">空闲偏置另外核对</h2>

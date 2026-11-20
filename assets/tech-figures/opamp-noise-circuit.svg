@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" width="720" height="520" role="img" aria-labelledby="opamp-noise-circuit-title opamp-noise-circuit-desc">
+<title id="opamp-noise-circuit-title">01 / 信号源、反馈网络和噪声增益</title><desc id="opamp-noise-circuit-desc">非反相电阻反馈结构；en、in 为运放等效噪声标记。简化噪声路径 · 未画偏置电源；en、in 为等效源标记而非额外器件</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L6,3 L0,6" fill="none" stroke="context-stroke" stroke-width="1.4"/></marker></defs>
+<rect width="720" height="520" fill="#f8fbf9"/>
+<style>text{font-family:Arial,'Microsoft YaHei','PingFang SC',sans-serif;fill:#244a45;font-size:17px}.muted{fill:#526d67}.accent{fill:#126455}.warm{fill:#9b5827}</style>
+<text x="28" y="35" font-size="23" style="font-size:23px;fill:#244a45" text-anchor="start" font-weight="700">01 / 信号源、反馈网络和噪声增益</text>
+<text x="28" y="63" font-size="16" style="font-size:16px;fill:#526d67" text-anchor="start">非反相电阻反馈结构；en、in 为运放等效噪声标记</text>
+<line x1="28" y1="80" x2="692" y2="80" stroke="#d7e4de" stroke-width="1"/>
+<text x="28" y="503" font-size="14" style="font-size:14px;fill:#526d67" text-anchor="start">简化噪声路径 · 未画偏置电源；en、in 为等效源标记而非额外器件</text>
+<path d="M365,166 L365,266 L465,216 Z" fill="#edf4ef" stroke="#244a45" stroke-width="2.2"/>
+<text x="375" y="198" font-size="20" style="font-size:20px;fill:#244a45" text-anchor="start">+</text>
+<text x="375" y="249" font-size="20" style="font-size:20px;fill:#244a45" text-anchor="start">−</text>
+<text x="38" y="196" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="start">信号源</text>
+<line x1="110" y1="191" x2="163.0" y2="191" stroke="#244a45" stroke-width="2.2"/>
+<rect x="163.0" y="183" width="44" height="16" rx="0" fill="#f8fbf9" stroke="#244a45" stroke-width="1.6"/>
+<line x1="207.0" y1="191" x2="260" y2="191" stroke="#244a45" stroke-width="2.2"/>
+<text x="185" y="166" font-size="17" style="font-size:17px;fill:#244a45" text-anchor="middle">RS</text>
+<line x1="260" y1="191" x2="365" y2="191" stroke="#244a45" stroke-width="2.2"/>
+<text x="185" y="130" font-size="15" style="font-size:15px;fill:#9b5827" text-anchor="middle">in 经源阻抗产生电压</text>
+<path d="M465.000,216.000 L625.000,216.000" fill="none" stroke="#244a45" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="590" cy="216" r="3.8" fill="#244a45"/>
+<text x="627" y="207" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="start">VOUT</text>
+<path d="M590.000,216.000 L590.000,325.000 L505.000,325.000" fill="none" stroke="#244a45" stroke-width="2.2" stroke-linejoin="round"/>
+<line x1="355" y1="325" x2="408.0" y2="325" stroke="#244a45" stroke-width="2.2"/>
+<rect x="408.0" y="317" width="44" height="16" rx="0" fill="#f8fbf9" stroke="#244a45" stroke-width="1.6"/>
+<line x1="452.0" y1="325" x2="505" y2="325" stroke="#244a45" stroke-width="2.2"/>
+<text x="430" y="309" font-size="17" style="font-size:17px;fill:#244a45" text-anchor="middle">RF</text>
+<path d="M355.000,325.000 L305.000,325.000 L305.000,241.000 L365.000,241.000" fill="none" stroke="#244a45" stroke-width="2.2" stroke-linejoin="round"/>
+<line x1="200" y1="241" x2="305" y2="241" stroke="#244a45" stroke-width="2.2"/>
+<circle cx="305" cy="241" r="3.8" fill="#244a45"/>
+<line x1="200" y1="241" x2="200" y2="273.5" stroke="#244a45" stroke-width="2.2"/>
+<rect x="192" y="273.5" width="16" height="44" rx="0" fill="#f8fbf9" stroke="#244a45" stroke-width="1.6"/>
+<line x1="200" y1="317.5" x2="200" y2="350" stroke="#244a45" stroke-width="2.2"/>
+<line x1="200" y1="350" x2="200" y2="359" stroke="#244a45" stroke-width="2.2"/>
+<line x1="188.0" y1="359" x2="212.0" y2="359" stroke="#244a45" stroke-width="2.2"/>
+<line x1="192.0" y1="365" x2="208.0" y2="365" stroke="#244a45" stroke-width="2.2"/>
+<line x1="196.0" y1="371" x2="204.0" y2="371" stroke="#244a45" stroke-width="2.2"/>
+<text x="170" y="304" font-size="17" style="font-size:17px;fill:#244a45" text-anchor="end">RG</text>
+<text x="430" y="385" font-size="16" style="font-size:16px;fill:#126455" text-anchor="start">en：输入电压噪声</text>
+<text x="430" y="415" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="start">RS、RF、RG 均有热噪声</text>
+<text x="90" y="469" font-size="18" style="font-size:18px;fill:#244a45" text-anchor="start">简单电阻反馈模型：噪声增益 NG = 1 + RF / RG</text>
+</svg>

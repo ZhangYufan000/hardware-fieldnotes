@@ -1,0 +1,10 @@
+.tech-figure{margin:28px 0 36px;border:1px solid var(--rule);border-radius:10px;background:var(--card);overflow:hidden}
+.tech-figure-scroll{overflow-x:auto;overscroll-behavior-x:contain;background:#f8fbf9}
+.tech-figure img{display:block;width:100%;min-width:620px;height:auto;max-width:none}
+.tech-figure figcaption{padding:16px 20px;font-size:.92rem;line-height:1.8;color:var(--muted)}
+.tech-figure figcaption strong{display:block;color:var(--ink);font-size:.96rem;margin-bottom:5px}
+.tech-figure .figure-meta{display:block;margin-top:7px;font-size:.8rem}
+.tech-figure .figure-open{display:inline-block;margin-top:8px;font-weight:600;text-underline-offset:4px}
+
+@media(max-width:760px){.tech-figure figcaption{padding:14px 16px}}
+@media print{.tech-figure img{min-width:0}.tech-figure-scroll{overflow:visible}.tech-figure{break-inside:avoid}}

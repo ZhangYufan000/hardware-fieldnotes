@@ -9,6 +9,7 @@
   <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
   <script src="../assets/site.js" defer></script>
+  <link rel="stylesheet" href="../assets/tech-figures.css">
 </head>
 <body>
   <a class="skip" href="#main">跳到正文</a>
@@ -33,6 +34,16 @@
           <section aria-labelledby="ripple">
             <h2 id="ripple">先算电流的峰峰值</h2>
             <p>理想稳态占空比 D ≈ V<sub>OUT</sub> / V<sub>IN</sub>。电感电流纹波为 ΔI<sub>L</sub> ≈ (V<sub>IN</sub> − V<sub>OUT</sub>) × D / (L × f<sub>s</sub>)，峰值约 I<sub>OUT</sub> + ΔI<sub>L</sub> / 2。</p><p>假设输入 24 V、输出 5 V/2 A、频率 500 kHz、电感 10 μH，得到 D ≈ 0.208、纹波约 0.792 A、峰值约 2.40 A。这是理想计算例子。</p>
+            <figure class="tech-figure" id="figure-buck-inductor-circuit">
+              <div class="tech-figure-scroll" tabindex="0" role="region" aria-label="01 / 算例的输入、输出与电感，窄屏可横向滚动"><img src="../assets/tech-figures/buck-inductor-circuit.svg" width="720" height="470" alt="01 / 算例的输入、输出与电感。本例仅采用理想 Buck 的连续导通稳态模型。开通时电感电压约 VIN − VOUT；关断时约 −VOUT。" loading="lazy" decoding="async"></div>
+              <figcaption><strong>01 / 算例的输入、输出与电感</strong>本例仅采用理想 Buck 的连续导通稳态模型。开通时电感电压约 VIN − VOUT；关断时约 −VOUT。<span class="figure-meta">依据：TI SLVA477，§2–3。 自绘教学示意，非实测。</span><a class="figure-open" href="../assets/tech-figures/buck-inductor-circuit.svg" target="_blank" rel="noopener">放大查看 ↗</a></figcaption>
+            </figure>
+            <figure class="tech-figure" id="figure-buck-inductor-wave">
+              <div class="tech-figure-scroll" tabindex="0" role="region" aria-label="02 / 上升短、下降长的电感电流，窄屏可横向滚动"><img src="../assets/tech-figures/buck-inductor-wave.svg" width="720" height="440" alt="02 / 上升短、下降长的电感电流。同一坐标绘制两个周期。占空比约 20.8%，所以电流上升段比下降段短；峰值约 2.40 A，谷值约 1.60 A。" loading="lazy" decoding="async"></div>
+              <figcaption><strong>02 / 上升短、下降长的电感电流</strong>同一坐标绘制两个周期。占空比约 20.8%，所以电流上升段比下降段短；峰值约 2.40 A，谷值约 1.60 A。<span class="figure-meta">依据：TI SLVA477，§2–3；文中算例复算。 自绘教学示意，非实测。</span><a class="figure-open" href="../assets/tech-figures/buck-inductor-wave.svg" target="_blank" rel="noopener">放大查看 ↗</a></figcaption>
+            </figure>
+
+
           </section>
           <section aria-labelledby="ratings">
             <h2 id="ratings">饱和电流和温升电流分别检查</h2>

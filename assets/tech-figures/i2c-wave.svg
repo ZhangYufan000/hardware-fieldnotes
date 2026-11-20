@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460" width="720" height="460" role="img" aria-labelledby="i2c-wave-title i2c-wave-desc">
+<title id="i2c-wave-title">02 / 九个恢复时钟，随后单独生成 STOP</title><desc id="i2c-wave-desc">图例：目标在第 9 个上升沿前释放 SDA；间隔未按比例。时序示意 · 非实测；SCL 被拉低或九次后 SDA 仍低时，需另行复位诊断</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L6,3 L0,6" fill="none" stroke="context-stroke" stroke-width="1.4"/></marker></defs>
+<rect width="720" height="460" fill="#f8fbf9"/>
+<style>text{font-family:Arial,'Microsoft YaHei','PingFang SC',sans-serif;fill:#244a45;font-size:17px}.muted{fill:#526d67}.accent{fill:#126455}.warm{fill:#9b5827}</style>
+<text x="28" y="35" font-size="23" style="font-size:23px;fill:#244a45" text-anchor="start" font-weight="700">02 / 九个恢复时钟，随后单独生成 STOP</text>
+<text x="28" y="63" font-size="16" style="font-size:16px;fill:#526d67" text-anchor="start">图例：目标在第 9 个上升沿前释放 SDA；间隔未按比例</text>
+<line x1="28" y1="80" x2="692" y2="80" stroke="#d7e4de" stroke-width="1"/>
+<text x="28" y="443" font-size="14" style="font-size:14px;fill:#526d67" text-anchor="start">时序示意 · 非实测；SCL 被拉低或九次后 SDA 仍低时，需另行复位诊断</text>
+<rect x="88" y="104" width="360" height="207" rx="7" fill="#e3f0e9" stroke="none" stroke-width="1.6"/>
+<rect x="449" y="104" width="201" height="207" rx="7" fill="#f3e9df" stroke="none" stroke-width="1.6"/>
+<text x="268" y="127" font-size="16" style="font-size:16px;fill:#126455" text-anchor="middle">恢复时钟 1–9</text>
+<text x="555" y="127" font-size="16" style="font-size:16px;fill:#9b5827" text-anchor="middle">生成 STOP</text>
+<text x="29" y="169" font-size="17" style="font-size:17px;fill:#244a45" text-anchor="start">SCL</text>
+<text x="29" y="279" font-size="17" style="font-size:17px;fill:#244a45" text-anchor="start">SDA</text>
+<text x="108" y="221" font-size="14" style="font-size:14px;fill:#244a45" text-anchor="middle">1</text>
+<text x="148" y="221" font-size="14" style="font-size:14px;fill:#244a45" text-anchor="middle">2</text>
+<text x="188" y="221" font-size="14" style="font-size:14px;fill:#244a45" text-anchor="middle">3</text>
+<text x="228" y="221" font-size="14" style="font-size:14px;fill:#244a45" text-anchor="middle">4</text>
+<text x="268" y="221" font-size="14" style="font-size:14px;fill:#244a45" text-anchor="middle">5</text>
+<text x="308" y="221" font-size="14" style="font-size:14px;fill:#244a45" text-anchor="middle">6</text>
+<text x="348" y="221" font-size="14" style="font-size:14px;fill:#244a45" text-anchor="middle">7</text>
+<text x="388" y="221" font-size="14" style="font-size:14px;fill:#244a45" text-anchor="middle">8</text>
+<text x="428" y="221" font-size="14" style="font-size:14px;fill:#244a45" text-anchor="middle">9</text>
+<path d="M65.000,157.000 L88.000,157.000 L88.000,191.000 L108.000,191.000 L108.000,157.000 L128.000,157.000 L128.000,191.000 L148.000,191.000 L148.000,157.000 L168.000,157.000 L168.000,191.000 L188.000,191.000 L188.000,157.000 L208.000,157.000 L208.000,191.000 L228.000,191.000 L228.000,157.000 L248.000,157.000 L248.000,191.000 L268.000,191.000 L268.000,157.000 L288.000,157.000 L288.000,191.000 L308.000,191.000 L308.000,157.000 L328.000,157.000 L328.000,191.000 L348.000,191.000 L348.000,157.000 L368.000,157.000 L368.000,191.000 L388.000,191.000 L388.000,157.000 L408.000,157.000 L408.000,191.000 L428.000,191.000 L428.000,157.000 L448.000,157.000 L448.000,191.000 L488.000,191.000 L488.000,157.000 L650.000,157.000" fill="none" stroke="#126455" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M65.000,291.000 L416.000,291.000 L416.000,257.000 L460.000,257.000 L460.000,291.000 L518.000,291.000 L518.000,257.000 L650.000,257.000" fill="none" stroke="#9b5827" stroke-width="2.5" stroke-linejoin="round"/>
+<line x1="518" y1="146" x2="518" y2="316" stroke="#9b5827" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="518" y="342" font-size="17" style="font-size:17px;fill:#9b5827" text-anchor="middle">SCL 高时 SDA ↑ = STOP</text>
+<text x="88" y="374" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="start">① 开漏释放并确认 SCL 实际变高；目标可能提前释放 SDA。</text>
+<text x="88" y="406" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="start">② STOP：SCL 低时先拉低 SDA，再释放 SCL，最后释放 SDA。</text>
+</svg>

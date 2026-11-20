@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 450" width="720" height="450" role="img" aria-labelledby="buck-hot-loop-wave-title buck-hot-loop-wave-desc">
+<title id="buck-hot-loop-wave-title">02 / 电感连续，输入开关支路呈脉冲</title><desc id="buck-hot-loop-wave-desc">只示意 CCM 的支路关系；幅值与时间未按比例。自绘示意 · 非实测；仅解释文中关系</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L6,3 L0,6" fill="none" stroke="context-stroke" stroke-width="1.4"/></marker></defs>
+<rect width="720" height="450" fill="#f8fbf9"/>
+<style>text{font-family:Arial,'Microsoft YaHei','PingFang SC',sans-serif;fill:#244a45;font-size:17px}.muted{fill:#526d67}.accent{fill:#126455}.warm{fill:#9b5827}</style>
+<text x="28" y="35" font-size="23" style="font-size:23px;fill:#244a45" text-anchor="start" font-weight="700">02 / 电感连续，输入开关支路呈脉冲</text>
+<text x="28" y="63" font-size="16" style="font-size:16px;fill:#526d67" text-anchor="start">只示意 CCM 的支路关系；幅值与时间未按比例</text>
+<line x1="28" y1="80" x2="692" y2="80" stroke="#d7e4de" stroke-width="1"/>
+<text x="28" y="433" font-size="14" style="font-size:14px;fill:#526d67" text-anchor="start">自绘示意 · 非实测；仅解释文中关系</text>
+<text x="35" y="119" font-size="18" style="font-size:18px;fill:#244a45" text-anchor="start">iL</text>
+<text x="35" y="264" font-size="18" style="font-size:18px;fill:#244a45" text-anchor="start">iQH</text>
+<line x1="100" y1="205" x2="660" y2="205" stroke="#526d67" stroke-width="1" marker-end="url(#arrow)"/>
+<line x1="100" y1="350" x2="660" y2="350" stroke="#526d67" stroke-width="1" marker-end="url(#arrow)"/>
+<rect x="100" y="123" width="66" height="227" rx="7" fill="#e3f0e9" stroke="none" stroke-width="1.6"/>
+<rect x="280" y="123" width="66" height="227" rx="7" fill="#e3f0e9" stroke="none" stroke-width="1.6"/>
+<rect x="460" y="123" width="66" height="227" rx="7" fill="#e3f0e9" stroke="none" stroke-width="1.6"/>
+<path d="M100.000,182.000 L166.000,142.000 L280.000,182.000 L346.000,142.000 L460.000,182.000 L526.000,142.000 L640.000,182.000" fill="none" stroke="#126455" stroke-width="3" stroke-linejoin="round"/>
+<path d="M100.000,350.000 L100.000,307.000 L166.000,267.000 L166.000,350.000 L280.000,350.000 L280.000,307.000 L346.000,267.000 L346.000,350.000 L460.000,350.000 L460.000,307.000 L526.000,267.000 L526.000,350.000 L640.000,350.000" fill="none" stroke="#9b5827" stroke-width="3" stroke-linejoin="round"/>
+<text x="395" y="118" font-size="16" style="font-size:16px;fill:#126455" text-anchor="start">绿色底：QH 导通区间</text>
+<text x="395" y="238" font-size="16" style="font-size:16px;fill:#9b5827" text-anchor="start">关断区间 iQH = 0</text>
+<text x="640" y="380" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="end">时间 →</text>
+<text x="100" y="408" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="start">iQH 不是 iCIN；输入电容电流还取决于输入电源支路。</text>
+</svg>

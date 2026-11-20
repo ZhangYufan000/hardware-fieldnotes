@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 500" width="720" height="500" role="img" aria-labelledby="mosfet-wave-title mosfet-wave-desc">
+<title id="mosfet-wave-title">02 / 切换期间，电压与电流会重叠</title><desc id="mosfet-wave-desc">示意感性负载硬开关的单次开通；波形做归一化显示。自绘定性时序 · 非实测；未包含反向恢复、COSS 等全部效应</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L6,3 L0,6" fill="none" stroke="context-stroke" stroke-width="1.4"/></marker></defs>
+<rect width="720" height="500" fill="#f8fbf9"/>
+<style>text{font-family:Arial,'Microsoft YaHei','PingFang SC',sans-serif;fill:#244a45;font-size:17px}.muted{fill:#526d67}.accent{fill:#126455}.warm{fill:#9b5827}</style>
+<text x="28" y="35" font-size="23" style="font-size:23px;fill:#244a45" text-anchor="start" font-weight="700">02 / 切换期间，电压与电流会重叠</text>
+<text x="28" y="63" font-size="16" style="font-size:16px;fill:#526d67" text-anchor="start">示意感性负载硬开关的单次开通；波形做归一化显示</text>
+<line x1="28" y1="80" x2="692" y2="80" stroke="#d7e4de" stroke-width="1"/>
+<text x="28" y="483" font-size="14" style="font-size:14px;fill:#526d67" text-anchor="start">自绘定性时序 · 非实测；未包含反向恢复、COSS 等全部效应</text>
+<line x1="140" y1="190" x2="650" y2="190" stroke="#526d67" stroke-width="1"/>
+<text x="28" y="139" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="start">vDS / VBUS</text>
+<line x1="140" y1="120" x2="140" y2="190" stroke="#526d67" stroke-width="1"/>
+<line x1="140" y1="295" x2="650" y2="295" stroke="#526d67" stroke-width="1"/>
+<text x="28" y="244" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="start">iD / IL</text>
+<line x1="140" y1="225" x2="140" y2="295" stroke="#526d67" stroke-width="1"/>
+<line x1="140" y1="410" x2="650" y2="410" stroke="#526d67" stroke-width="1"/>
+<text x="28" y="359" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="start">p / (VBUS·IL)</text>
+<line x1="140" y1="340" x2="140" y2="410" stroke="#526d67" stroke-width="1"/>
+<line x1="240" y1="102" x2="240" y2="422" stroke="#d7e4de" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="340" y1="102" x2="340" y2="422" stroke="#d7e4de" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="440" y1="102" x2="440" y2="422" stroke="#d7e4de" stroke-width="1" stroke-dasharray="4 4"/>
+<path d="M140.000,120.000 L340.000,120.000 L440.000,190.000 L650.000,190.000" fill="none" stroke="#126455" stroke-width="3" stroke-linejoin="round"/>
+<path d="M140.000,295.000 L240.000,295.000 L340.000,225.000 L650.000,225.000" fill="none" stroke="#9b5827" stroke-width="3" stroke-linejoin="round"/>
+<path d="M140.000,410.000 L240.000,410.000 L340.000,340.000 L440.000,410.000 L650.000,410.000" fill="none" stroke="#126455" stroke-width="3" stroke-linejoin="round"/>
+<text x="290" y="454" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="middle">电流建立</text>
+<text x="390" y="454" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="middle">电压下降</text>
+<text x="642" y="454" font-size="16" style="font-size:16px;fill:#244a45" text-anchor="end">时间 →</text>
+<text x="475" y="352" font-size="16" style="font-size:16px;fill:#9b5827" text-anchor="start">重叠产生能量损耗</text>
+</svg>

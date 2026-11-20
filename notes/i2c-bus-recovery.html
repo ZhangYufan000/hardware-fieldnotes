@@ -9,6 +9,7 @@
   <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
   <script src="../assets/site.js" defer></script>
+  <link rel="stylesheet" href="../assets/tech-figures.css">
 </head>
 <body>
   <a class="skip" href="#main">跳到正文</a>
@@ -33,10 +34,20 @@
           <section aria-labelledby="state">
             <h2 id="state">SDA 和 SCL 分别处理</h2>
             <p>先退出控制器当前传输并释放开漏输出，确认系统没有其他控制器正在通信。SCL 持低时，要检查合法时钟拉伸、器件异常和硬件短路。只有 SCL 能正常释放为高电平时，才具备手动输出恢复时钟的条件。</p>
+            <figure class="tech-figure" id="figure-i2c-circuit">
+              <div class="tech-figure-scroll" tabindex="0" role="region" aria-label="01 / SDA 被拉低，先找谁还在下拉，窄屏可横向滚动"><img src="../assets/tech-figures/i2c-circuit.svg" width="720" height="470" alt="01 / SDA 被拉低，先找谁还在下拉。总线上任一开漏输出持续下拉，SDA 就保持低。恢复操作必须释放输出后读取实际电平，不能推挽强行拉高。" loading="lazy" decoding="async"></div>
+              <figcaption><strong>01 / SDA 被拉低，先找谁还在下拉</strong>总线上任一开漏输出持续下拉，SDA 就保持低。恢复操作必须释放输出后读取实际电平，不能推挽强行拉高。<span class="figure-meta">依据：NXP UM10204，§3.1.1 SDA/SCL、§3.1.16 Bus clear。 自绘教学示意，非实测。</span><a class="figure-open" href="../assets/tech-figures/i2c-circuit.svg" target="_blank" rel="noopener">放大查看 ↗</a></figcaption>
+            </figure>
+
           </section>
           <section aria-labelledby="clear">
             <h2 id="clear">按规范尝试总线清除</h2>
             <p>NXP UM10204 §3.1.16 对 SDA 持低给出发送九个时钟脉冲的恢复方法，目标器件通常可在这些时钟内完成当前字节并释放 SDA。若未释放，则按器件能力使用硬件复位或电源复位。</p><p>产生时钟时保持开漏方式，每次释放 SCL 后都要确认引脚确实变高，再按总线模式满足高、低电平时间。若需要生成 STOP，必须在 SCL 实际为高时让 SDA 从低变高。</p>
+            <figure class="tech-figure" id="figure-i2c-wave">
+              <div class="tech-figure-scroll" tabindex="0" role="region" aria-label="02 / 九个恢复时钟，随后单独生成 STOP，窄屏可横向滚动"><img src="../assets/tech-figures/i2c-wave.svg" width="720" height="460" alt="02 / 九个恢复时钟，随后单独生成 STOP。绿色区只有九个恢复脉冲；后面的 SCL 上升属于 STOP 生成过程。STOP 是 SCL 已为高时 SDA 从低变高；时钟拉伸时需等待实际电平。" loading="lazy" decoding="async"></div>
+              <figcaption><strong>02 / 九个恢复时钟，随后单独生成 STOP</strong>绿色区只有九个恢复脉冲；后面的 SCL 上升属于 STOP 生成过程。STOP 是 SCL 已为高时 SDA 从低变高；时钟拉伸时需等待实际电平。<span class="figure-meta">依据：NXP UM10204，§3.1.16（PDF 第 19 页）、§3.1.4 START/STOP。 自绘教学示意，非实测。</span><a class="figure-open" href="../assets/tech-figures/i2c-wave.svg" target="_blank" rel="noopener">放大查看 ↗</a></figcaption>
+            </figure>
+
           </section>
           <section aria-labelledby="reinit">
             <h2 id="reinit">恢复后重新建立状态</h2>

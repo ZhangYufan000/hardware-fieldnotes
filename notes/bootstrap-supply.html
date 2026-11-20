@@ -9,6 +9,7 @@
   <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
   <script src="../assets/site.js" defer></script>
+  <link rel="stylesheet" href="../assets/tech-figures.css">
 </head>
 <body>
   <a class="skip" href="#main">跳到正文</a>
@@ -33,10 +34,20 @@
           <section aria-labelledby="charge">
             <h2 id="charge">导通期间，电荷从哪里来</h2>
             <p>自举电容需要承担 MOSFET 的栅极充电、驱动器静态消耗和漏电。高侧保持导通越久，剩余电压可能越低。普通自举结构无法靠一个电容无限维持高侧导通，要核对驱动器是否另有电荷泵或独立浮动电源。</p>
+            <figure class="tech-figure" id="figure-bootstrap-circuit">
+              <div class="tech-figure-scroll" tabindex="0" role="region" aria-label="01 / 自举电容跟着 SW 一起浮动，窄屏可横向滚动"><img src="../assets/tech-figures/bootstrap-circuit.svg" width="720" height="490" alt="01 / 自举电容跟着 SW 一起浮动。自举电容跨接 BOOT 与 SW。图示低侧导通时可补电；高侧导通时，驱动器和栅极从自举电容取电。" loading="lazy" decoding="async"></div>
+              <figcaption><strong>01 / 自举电容跟着 SW 一起浮动</strong>自举电容跨接 BOOT 与 SW。图示低侧导通时可补电；高侧导通时，驱动器和栅极从自举电容取电。<span class="figure-meta">依据：TI SLUA887A，§2 Basic Operation。 自绘教学示意，非实测。</span><a class="figure-open" href="../assets/tech-figures/bootstrap-circuit.svg" target="_blank" rel="noopener">放大查看 ↗</a></figcaption>
+            </figure>
+
           </section>
           <section aria-labelledby="estimate">
             <h2 id="estimate">用电荷估算一次压降</h2>
             <p>用 C<sub>BOOT,eff</sub> ≥ Q<sub>total</sub> / ΔV 估算起点，Q<sub>total</sub> 包括栅极电荷及该导通时间内的其他消耗。假设总耗电荷为 60 nC，有效电容为 220 nF，则电压下降约 0.27 V。这组假设只演示电荷关系。</p><p>允许压降要根据实际充电电压、二极管压降、高侧欠压锁定阈值和所需栅极驱动电压确定。陶瓷电容还要计入偏压下的有效容量。</p>
+            <figure class="tech-figure" id="figure-bootstrap-wave">
+              <div class="tech-figure-scroll" tabindex="0" role="region" aria-label="02 / 补电与压降交替发生，窄屏可横向滚动"><img src="../assets/tech-figures/bootstrap-wave.svg" width="720" height="410" alt="02 / 补电与压降交替发生。定性充放电过程。高侧开通的栅极充电与持续消耗都会拉低 VBS；60 nC / 220 nF 只说明电荷与压降关系。" loading="lazy" decoding="async"></div>
+              <figcaption><strong>02 / 补电与压降交替发生</strong>定性充放电过程。高侧开通的栅极充电与持续消耗都会拉低 VBS；60 nC / 220 nF 只说明电荷与压降关系。<span class="figure-meta">依据：TI SLUA887A，§3.1、§3.4。 自绘教学示意，非实测。</span><a class="figure-open" href="../assets/tech-figures/bootstrap-wave.svg" target="_blank" rel="noopener">放大查看 ↗</a></figcaption>
+            </figure>
+
           </section>
           <section aria-labelledby="refresh">
             <h2 id="refresh">电容加大，也要留出充电时间</h2>
